@@ -2,7 +2,7 @@ module SignUpHelper
   def sign_up_as(user)
     SignUpPage.
         open.fill_form(
-        user_name: user.full_name,
+        user_name: user.name,
         email: user.email,
         password: user.password,
         password_confirmation: user.password).
@@ -16,7 +16,7 @@ module SignUpHelper
   def sign_up_without_confirmation(user)
     SignUpPage.
         open.fill_form(
-        user_name: user.full_name,
+        user_name: user.name,
         email: user.email,
         password: user.password,
         password_confirmation: user.password).

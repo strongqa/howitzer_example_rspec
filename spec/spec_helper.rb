@@ -1,7 +1,7 @@
 require 'rspec'
 require 'capybara/rspec'
 require_relative '../boot'
-require_relative '../features/support/gen.rb'
+
 Dir[File.join(File.dirname(__FILE__), 'support', '**', '*.rb')].each{ |f| require f }
 
 RSpec.configure do |config|
@@ -10,9 +10,9 @@ RSpec.configure do |config|
   DataStorage.store('sauce', :start_time, Time.now.utc)
   DataStorage.store('sauce', :status, true)
 
+  config.include FactoryGirl::Syntax::Methods
   config.include Capybara::Settings
   config.include Capybara::RSpecMatchers
-  config.include DataGenerator
 
   config.disable_monkey_patching = true
   config.color = true
