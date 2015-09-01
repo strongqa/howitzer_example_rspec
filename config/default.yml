@@ -1,0 +1,121 @@
+###########################################################
+#  COMMON SETTINGS                                        #
+###########################################################
+ debug_mode: false
+
+###########################################################
+# APPLICATION SETTINGS                                    #
+###########################################################
+ app_base_auth_login:
+ app_base_auth_pass:
+ app_protocol: http
+ app_host: demoapp.strongqa.com
+
+ def_test_user: admin@strongqa.com
+ def_test_pass: 1234567890
+ def_test_name: Admin User
+
+###########################################################
+# PRE-REQUISITES                                          #
+###########################################################
+ test_api_token: 97f85fa997125c758a67213c44e1c0543a603f3819b31456b9
+ test_api_end_point: "api/v1"
+
+
+###########################################################
+# TEST ENVIRONMENTS SETTINGS                              #
+###########################################################
+
+# Specify maximized browser window size
+ maximized_window: false
+
+ # Specify one of the following drivers: selenium, selenium_dev, selenium_grid, webkit, poltergeist, phantomjs, sauce, testingbot, browserstack
+ driver: phantomjs
+
+ # -Selenium-
+ # specify one of next browsers: iexplore (ie), firefox (ff), chrome, safari
+ sel_browser: ff
+
+ # -Selenium Grid-
+ sel_hub_url: "http://example.com:4444/wd/hub"
+
+ # -PhantomJS-
+ # specify settings for poltergeist
+ pjs_ignore_js_errors: false
+ pjs_ignore_ssl_errors: true
+
+ # -SauceLabs-
+ sl_user: some_user
+ sl_api_key: some_api_key
+ sl_url: "http://${sl_user}:${sl_api_key}@ondemand.saucelabs.com:80/wd/hub"
+ sl_platform: :VISTA
+ sl_browser_name: firefox
+ sl_selenium_version: "2.18.0"
+ sl_max_duration: '1800'
+ sl_idle_timeout: '180'
+
+ # -TestingBot- browsers that are supported: firefox => '8', googlechrome, iexplore => '9'
+ tb_api_key: client_key
+ tb_api_secret: client_secret
+ tb_url: "http://${tb_api_key}:${tb_api_secret}@hub.testingbot.com:80/wd/hub"
+ tb_platform: :WIN8
+ tb_browser_name: firefox
+ tb_browser_version: 8
+ tb_selenium_version: "2.18.0"
+ tb_max_duration: '1800'
+ tb_idle_timeout: '180'
+ tb_record_screenshot: false
+
+ # -BrowserStack
+ bs_user_name: bs_user
+ bs_password: bs_password
+ bs_url: "http://${bs_user_name}:${bs_password}@hub.browserstack.com/wd/hub"
+ bs_os_name: 'Windows'
+ bs_os_version: '8'
+ bs_browser_name: 'Firefox'
+ bs_browser_version: '16.0'
+ bs_resolution: '1024x768'
+ bs_max_duration: '1800'
+ bs_idle_timeout: '180'
+
+ # Run tests on mobile browsers
+ bs_mobile: false
+ bs_m_browser: 'iPhone'
+ bs_m_platform: 'MAC'
+ bs_m_device: 'iPhone 5'
+
+ bs_local: 'false'
+ bs_local_ID: 'Testing123'
+ bs_build: 'v1'
+ bs_project: 'Test Project'
+ bs_ssl: 'true'
+ bs_debug: 'false'
+
+###########################################################
+# DATABASE SETTINGS                                       #
+###########################################################
+
+
+
+###########################################################
+# LOGGER SETTINGS                                         #
+###########################################################
+ log_dir: "log"
+ txt_log: log.txt
+ html_log: log.html
+ selenium_server_log: selenium-server.log
+ required_clean_logs: true
+
+###########################################################
+# MAILGUN SETTINGS                                        #
+###########################################################
+ mailgun_key: key-fdc7dfaf228e6c6827ebe94da27125b6
+ mailgun_domain: mg.strongqa.com
+
+############################################################
+# TIMEOUTS                                                 #
+############################################################
+ timeout_tiny: 2
+ timeout_short: 6
+ timeout_small: 40
+ timeout_medium: 120
