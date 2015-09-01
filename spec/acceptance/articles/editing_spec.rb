@@ -1,16 +1,15 @@
 require 'spec_helper'
 
 feature "Article Editing" do
+
   background "log in as admin" do
     log_in_as_admin
-    ArticleListPage.open.add_new_article
-    @article = Gen::article
-    NewArticlePage.given.fill_form(title: @article.title, text: @article.text)
-        .submit_form
+    article = build(:article).save!
+    open_article(article)
   end
 
   scenario "User can edit article with correct credentials" do
-    article1 = Gen::article
+    article1 = build(:article)
     ArticlePage.given.click_article_button('Edit')
     EditArticlePage.given.fill_form(title: article1.title, text: article1.text)
         .submit_form

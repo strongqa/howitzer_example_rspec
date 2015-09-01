@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 feature "Password Resetting" do
+
   background "sign up user" do
-    @user1 = Gen.user
-    sign_up_as(@user1)
+    @user1 = build(:user).save!
   end
 
   scenario "User can reset password with correct data" do
-    user2 = Gen.user
+    user2 = build(:user)
     user_restores_password(@user1.email)
     ChangePasswordPage.given.
         fill_form(new_password: user2.password,
@@ -44,14 +44,12 @@ feature "Password Resetting" do
   end
 
   scenario "user can login with old password until confirmation email for new password is not confirmed" do
-    user = Gen.user
-    sign_up_as(user)
     LoginPage.open.
         navigate_to_forgot_password_page
     ForgotPasswordPage.given.
-        fill_form(email: user.email).
+        fill_form(email: @user1.email).
         submit_form
     expect(LoginPage.given.flash_message).to eql("You will receive an email with instructions on how to reset your password in a few minutes.")
-    log_in_as(user)
+    log_in_as(@user1)
   end
 end

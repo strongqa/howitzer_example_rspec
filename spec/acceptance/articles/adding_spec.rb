@@ -8,7 +8,7 @@ feature "Article adding" do
   end
 
   scenario "User can add article with correct data" do
-    article=Gen::article
+    article = build(:article)
     NewArticlePage.given.fill_form(title: article.title, text: article.text)
         .submit_form
     expect(ArticlePage.given.text).to include(article.title)
@@ -23,7 +23,7 @@ feature "Article adding" do
   end
 
   scenario "User can not add article with title is too short" do
-    article=Gen::article
+    article = build(:article)
     NewArticlePage.given.fill_form(title: "1234", text: article.text)
         .submit_form
     expect(NewArticlePage.given.text).to include("1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)")

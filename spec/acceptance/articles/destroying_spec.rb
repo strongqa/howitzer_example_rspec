@@ -4,10 +4,7 @@ feature "Article destroying" do
 
   before(:each) do
     log_in_as_admin
-    ArticleListPage.open.add_new_article
-    @article=Gen::article
-    NewArticlePage.given.fill_form(title: @article.title, text: @article.text)
-        .submit_form
+    @article = build(:article).save!
     ArticleListPage.open
   end
 
