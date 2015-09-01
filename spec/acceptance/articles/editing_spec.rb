@@ -2,21 +2,19 @@ require 'spec_helper'
 
 feature "Article Editing" do
 
-  attr_accessor :article, :article1
-
   background "log in as admin" do
     log_in_as_admin
-    self.article = build(:article).save!
-    open_article(self.article)
+    article = build(:article).save!
+    open_article(article)
   end
 
   scenario "User can edit article with correct credentials" do
-    self.article1 = build(:article)
+    article1 = build(:article)
     ArticlePage.given.click_article_button('Edit')
-    EditArticlePage.given.fill_form(title: self.article1.title, text: self.article1.text)
+    EditArticlePage.given.fill_form(title: article1.title, text: article1.text)
         .submit_form
-    expect(ArticlePage.given.text).to include(self.article1.title)
-    expect(ArticlePage.given.text).to include(self.article1.text)
+    expect(ArticlePage.given.text).to include(article1.title)
+    expect(ArticlePage.given.text).to include(article1.text)
   end
 
   scenario "User can not edit article with blank title" do

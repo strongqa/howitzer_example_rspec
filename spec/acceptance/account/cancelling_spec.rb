@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 feature "Account cancelling" do
-  attr_accessor :user
   scenario "User can cancel his own account if he is signed in" do
-    self.user = build(:user).save!
-    log_in_as(self.user)
+    user = build(:user).save!
+    log_in_as(user)
 
     EditAccountPage.open
                    .cancel_my_account
