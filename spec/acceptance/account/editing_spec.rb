@@ -55,14 +55,7 @@ feature "Account Editing" do
   end
 
   scenario "User can not edit account with existing email" do
-    user2 = build(:user)
-    SignUpPage.open.sign_up_as(user2.name, user2.email, user2.password)
-
-    ConfirmationInstructionEmail.
-        find_by_recipient(user2.email).
-        confirm_my_account
-
-    expect(LoginPage.given.flash_message).to eql('Your account was successfully confirmed.')
+    user2 = create(:user)
     log_in_as(user2)
     EditAccountPage.open.fill_form(email: @user1.email,
                   current_password: user2.password).submit_form

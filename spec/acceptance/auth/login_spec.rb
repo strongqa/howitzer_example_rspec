@@ -5,17 +5,20 @@ feature "Log In" do
     background "sign up user" do
       @user1 = build(:user).save!
     end
+
   scenario "user can open login page via menu" do
     HomePage.
         open.
         choose_menu('Login')
     LoginPage.wait_for_opened
   end
+
   scenario "Visitor can login with correct credentials" do
     log_in_as(@user1)
     expect(HomePage).to be_authenticated
     HomePage.wait_for_opened
   end
+
   scenario "User can not login with blank password" do
     LoginPage.
         open.fill_form(
@@ -24,6 +27,7 @@ feature "Log In" do
     expect(HomePage).to_not be_authenticated
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
   scenario "User can not login with blank email" do
       LoginPage.
           open.fill_form(
@@ -32,6 +36,7 @@ feature "Log In" do
       expect(HomePage).to_not be_authenticated
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
   scenario "User can not login with blank email and passwnord" do
     LoginPage.
         open.fill_form(
@@ -40,6 +45,7 @@ feature "Log In" do
       expect(HomePage).to_not be_authenticated
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
   scenario "User can not login with incorrect email" do
     LoginPage.
         open.fill_form(
@@ -48,6 +54,7 @@ feature "Log In" do
       expect(HomePage).to_not be_authenticated
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
   scenario "User can not login with incorrect password" do
      LoginPage.
          open.fill_form(
@@ -56,6 +63,7 @@ feature "Log In" do
      expect(HomePage).to_not be_authenticated
      expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
   scenario "User can not login with incorrect email and password" do
     LoginPage.
         open.fill_form(
@@ -64,6 +72,7 @@ feature "Log In" do
     expect(HomePage).to_not be_authenticated
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
   scenario "User can not login with incorrect email and blank password" do
     LoginPage.
         open.fill_form(
@@ -72,6 +81,7 @@ feature "Log In" do
     expect(HomePage).to_not be_authenticated
     LoginPage.wait_for_opened
   end
+
   scenario "User can not login until confirmation email is not confirmed" do
     user2 = build(:user)
     sign_up_without_confirmation(user2)
@@ -82,6 +92,7 @@ feature "Log In" do
     expect(HomePage).to_not be_authenticated
     expect(LoginPage.given.text).to include("You have to confirm your account before continuing.")
   end
+
   scenario "Canceled user can not login" do
     log_in_as(@user1)
     cancel_account
@@ -92,4 +103,5 @@ feature "Log In" do
     expect(HomePage).to_not be_authenticated
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
+
 end
