@@ -16,3 +16,6 @@ Her::API.setup url: "#{app_url}/#{settings.test_api_end_point}/" do |c|
   c.use Her::Middleware::DefaultParseJSON
   c.use Faraday::Adapter::NetHttp
 end
+
+#Should be required after setup
+require_relative 'models/base'
