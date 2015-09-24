@@ -23,7 +23,7 @@ feature "Sign Up" do
         user_name: user.name,
         email: user.email,
         password: user.password,
-        password_confirmation: self.user.password).submit_form
+        password_confirmation: user.password).submit_form
     expect(HomePage).to_not be_authenticated
     expect(HomePage.given.text).to include('A message with a confirmation link has been sent to your email address. Please open the link to activate your account.')
 
@@ -81,7 +81,7 @@ feature "Sign Up" do
         password: nil,
         password_confirmation: nil).submit_form
     expect(HomePage).to_not be_authenticated
-    expect(SignUpPage.given.text).to include("2 errors prohibited this user from being saved: Email is invalid Password can't be blank")
+    SignUpPage.wait_for_opened
   end
 
   scenario "User can not sign up with too short password" do
