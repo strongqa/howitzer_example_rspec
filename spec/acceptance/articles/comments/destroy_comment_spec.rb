@@ -6,7 +6,7 @@ feature "Destroy comment" do
      @comment = @article.comments.create(body: "Some comment", user_id: User.where(email: settings.def_test_user).all.first.id)
 
     log_in_as_admin
-    open_article(@article)
+     ArticlePage.open(@article.id)
   end
 
   scenario "User can remove comment with confirmation action" do

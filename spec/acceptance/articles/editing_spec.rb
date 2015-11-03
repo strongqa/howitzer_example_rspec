@@ -5,7 +5,7 @@ feature "Article Editing" do
   background "log in as admin" do
     log_in_as_admin
     article = build(:article).save!
-    open_article(article)
+    ArticlePage.open(article.id)
   end
 
   scenario "User can edit article with correct credentials" do

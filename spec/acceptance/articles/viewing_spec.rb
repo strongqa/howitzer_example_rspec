@@ -6,7 +6,7 @@ feature "Article Viewing" do
     @comment = @article.comments.create(body: "Some comment", user_id: User.where(email: settings.def_test_user).all.first.id)
 
     log_in_as_admin
-    open_article(@article)
+    ArticlePage.open(@article.id)
   end
 
   scenario "Admin is viewing article page" do
