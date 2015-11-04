@@ -7,7 +7,7 @@ feature "Adding Comment" do
     @comment = build(:comment)
     user = build(:user).save!
     log_in_as(user)
-    ArticlePage.open(article.id)
+    ArticlePage.open(id: article.id)
   end
 
   scenario "User can add comment with valid comment body" do
