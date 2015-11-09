@@ -2,14 +2,14 @@ require 'spec_helper'
 
 feature "Sign Up" do
 
-  scenario "Visitor can open sign up page via menu from home page" do
+  scenario "Visitor can open sign up page via menu from home page", :smoke => true do
     HomePage.
         open.
         choose_menu('Sign up')
     SignUpPage.wait_for_opened
   end
 
-  scenario "Visitor can open sign up page via menu from login page" do
+  scenario "Visitor can open sign up page via menu from login page", :smoke => true do
     LoginPage.
         open.
         choose_menu('Sign up')
@@ -38,7 +38,7 @@ feature "Sign Up" do
     expect(HomePage.given.text).to include('Signed in successfully.')
   end
 
-  scenario "User can not sign up with blank data" do
+  scenario "User can not sign up with blank data", :p1 => true do
     SignUpPage.
         open.fill_form(
         user_name: nil,
@@ -49,7 +49,7 @@ feature "Sign Up" do
     expect(SignUpPage.given.text).to include("2 errors prohibited this user from being saved: Email can't be blank Password can't be blank")
   end
 
-  scenario "User can not sign up with blank username and password" do
+  scenario "User can not sign up with blank username and password", :p1 => true do
     user = build(:user)
     SignUpPage.
         open.fill_form(
@@ -61,7 +61,7 @@ feature "Sign Up" do
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Password can't be blank")
   end
 
-  scenario "User can not sign up with blank email" do
+  scenario "User can not sign up with blank email", :p1 => true do
     user = build(:user)
     SignUpPage.
         open.fill_form(
@@ -73,7 +73,7 @@ feature "Sign Up" do
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Email can't be blank")
   end
 
-  scenario "User can not sign up with invalid email and empty password" do
+  scenario "User can not sign up with invalid email and empty password", :p1 => true do
     SignUpPage.
         open.fill_form(
         user_name: nil,
@@ -84,7 +84,7 @@ feature "Sign Up" do
     SignUpPage.wait_for_opened
   end
 
-  scenario "User can not sign up with too short password" do
+  scenario "User can not sign up with too short password", :p1 => true do
     user = build(:user)
     SignUpPage.
         open.fill_form(
@@ -95,7 +95,8 @@ feature "Sign Up" do
     expect(HomePage).to_not be_authenticated
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)")
   end
-  scenario "User can not sign up when password confirmation doesn`t match" do
+
+  scenario "User can not sign up when password confirmation doesn`t match", :p1 => true do
     user = build(:user)
     SignUpPage.
         open.fill_form(
@@ -107,7 +108,7 @@ feature "Sign Up" do
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Password confirmation doesn't match Password")
   end
 
-  scenario "User cannot sign up with duplicated email" do
+  scenario "User cannot sign up with duplicated email", :p1 => true do
     user = build(:user).save!
     SignUpPage.
         open.fill_form(

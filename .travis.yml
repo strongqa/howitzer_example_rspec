@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.2.0
 script:
-  - bundle exec rspec
+  - bundle exec rake features:smoke features:bvt features:p1 features:p2

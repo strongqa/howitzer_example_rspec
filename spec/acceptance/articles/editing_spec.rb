@@ -17,14 +17,14 @@ feature "Article Editing" do
     expect(ArticlePage.given.text).to include(article1.text)
   end
 
-  scenario "User can not edit article with blank title" do
+  scenario "User can not edit article with blank title", :p1 => true do
     ArticlePage.given.click_article_button('Edit')
     EditArticlePage.given.fill_form(title: '', text: '')
         .submit_form
     expect(EditArticlePage.given.error_message).to eql("2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)")
   end
 
-  scenario "User can not edit article with title is too short" do
+  scenario "User can not edit article with title is too short", :p1 => true do
     ArticlePage.given.click_article_button('Edit')
     EditArticlePage.given.fill_form(title: '1234', text: '')
         .submit_form

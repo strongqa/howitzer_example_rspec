@@ -26,7 +26,7 @@ feature "Account Editing" do
                                                   current_password: ''})
   end
 
-  scenario "User can edit email with correct credentials" do
+  scenario "User can edit email with correct credentials", :p1 => true do
     user2 = build(:user)
     log_in_as(@user1)
     EditAccountPage.open.fill_form(user_name: @user1.name,
@@ -47,14 +47,14 @@ feature "Account Editing" do
     expect(HomePage.given.flash_message).to eql('Signed in successfully.')
   end
 
-  scenario "User can not edit account with incorrect email" do
+  scenario "User can not edit account with incorrect email", :p1 => true do
     log_in_as(@user1)
     EditAccountPage.open.fill_form(email: 'test@.ua',
                   current_password: @user1.password).submit_form
     EditAccountPage.wait_for_opened
   end
 
-  scenario "User can not edit account with existing email" do
+  scenario "User can not edit account with existing email", :p1 => true do
     user2 = create(:user)
     log_in_as(user2)
     EditAccountPage.open.fill_form(email: @user1.email,
@@ -62,7 +62,7 @@ feature "Account Editing" do
     expect(EditAccountPage.given.error_message).to eql("1 error prohibited this user from being saved: Email has already been taken")
   end
 
-  scenario "User can not edit account with incorrect password" do
+  scenario "User can not edit account with incorrect password", :p1 => true do
     user2 = build(:user)
     log_in_as(@user1)
     EditAccountPage.open.fill_form(password: user2.password,
@@ -71,7 +71,7 @@ feature "Account Editing" do
     expect(EditAccountPage.given.error_message).to eql("1 error prohibited this user from being saved: Current password is invalid")
   end
 
-  scenario "User can not edit account with incorrect password confirmation" do
+  scenario "User can not edit account with incorrect password confirmation", :p1 => true do
     log_in_as(@user1)
     EditAccountPage.open.fill_form(password: '12345678',
                   password_confirmation: '123456789',
@@ -79,7 +79,7 @@ feature "Account Editing" do
     expect(EditAccountPage.given.error_message).to eql("1 error prohibited this user from being saved: Password confirmation doesn't match Password")
   end
 
-  scenario "User can not edit account with short password (less then 8 characters)" do
+  scenario "User can not edit account with short password (less then 8 characters)", :p1 => true do
     log_in_as(@user1)
     EditAccountPage.open.fill_form(password: '1234567',
                   password_confirmation: '1234567',

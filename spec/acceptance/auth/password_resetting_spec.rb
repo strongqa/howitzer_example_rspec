@@ -16,7 +16,7 @@ feature "Password Resetting" do
     expect(HomePage.given.flash_message).to eql("Your password was changed successfully. You are now signed in.")
   end
 
-  scenario "user can not reset password with incorrect confirmation password" do
+  scenario "user can not reset password with incorrect confirmation password", :p1 => true do
     user_restores_password(@user1.email)
     ChangePasswordPage.given.
         fill_form(new_password: 1234567890,
@@ -25,7 +25,7 @@ feature "Password Resetting" do
     expect(ChangePasswordPage.given.error_message).to eql("1 error prohibited this user from being saved: Password confirmation doesn't match Password")
   end
 
-  scenario "user can not reset password with too short new password" do
+  scenario "user can not reset password with too short new password", :p1 => true do
     user_restores_password(@user1.email)
     ChangePasswordPage.given.
         fill_form(new_password: 1234567,
@@ -34,7 +34,7 @@ feature "Password Resetting" do
     expect(ChangePasswordPage.given.error_message).to eql("1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)")
   end
 
-  scenario "user can not reset password with incorrect email" do
+  scenario "user can not reset password with incorrect email", :p1 => true do
     LoginPage.open.
         navigate_to_forgot_password_page
     ForgotPasswordPage.given.

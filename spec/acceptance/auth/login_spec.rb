@@ -19,7 +19,7 @@ feature "Log In" do
     HomePage.wait_for_opened
   end
 
-  scenario "User can not login with blank password" do
+  scenario "User can not login with blank password", :p1 => true do
     LoginPage.
         open.fill_form(
         email: @user1.email,
@@ -28,7 +28,7 @@ feature "Log In" do
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
-  scenario "User can not login with blank email" do
+  scenario "User can not login with blank email", :p1 => true do
       LoginPage.
           open.fill_form(
           email: nil,
@@ -37,7 +37,7 @@ feature "Log In" do
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
-  scenario "User can not login with blank email and passwnord" do
+  scenario "User can not login with blank email and passwnord", :p1 => true do
     LoginPage.
         open.fill_form(
         email: nil,
@@ -46,7 +46,7 @@ feature "Log In" do
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
-  scenario "User can not login with incorrect email" do
+  scenario "User can not login with incorrect email", :p1 => true do
     LoginPage.
         open.fill_form(
         email: 'test@test.com',
@@ -55,7 +55,7 @@ feature "Log In" do
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
-  scenario "User can not login with incorrect password" do
+  scenario "User can not login with incorrect password", :p1 => true do
      LoginPage.
          open.fill_form(
          email: @user1.email,
@@ -64,7 +64,7 @@ feature "Log In" do
      expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
-  scenario "User can not login with incorrect email and password" do
+  scenario "User can not login with incorrect email and password", :p1 => true do
     LoginPage.
         open.fill_form(
         email: 'test@test.com',
@@ -73,7 +73,7 @@ feature "Log In" do
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
-  scenario "User can not login with incorrect email and blank password" do
+  scenario "User can not login with incorrect email and blank password", :p1 => true do
     LoginPage.
         open.fill_form(
         email: 'test.1234567890',

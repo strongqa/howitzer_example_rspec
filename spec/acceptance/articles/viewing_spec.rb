@@ -21,7 +21,7 @@ feature "Article Viewing" do
     expect(ArticlePage.given).to be_destroy_comment_link_present(@comment.body)
   end
 
-  scenario "Admin can be redirected from article page back to article list" do
+  scenario "Admin can be redirected from article page back to article list", :p1 => true do
     ArticlePage.given.back_to_article_list
     ArticleListPage.wait_for_opened
   end

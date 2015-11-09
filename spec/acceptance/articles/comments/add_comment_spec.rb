@@ -16,7 +16,7 @@ feature "Adding Comment" do
     expect(ArticlePage.given.text).to include("Comment was successfully added to current article.")
   end
 
-  scenario "User can not add comment with blank comment body" do
+  scenario "User can not add comment with blank comment body", :p1 => true do
     ArticlePage.given.fill_comment_form(body: nil)
     ArticlePage.given.submit_form
     expect(ArticlePage.given.text).to include("Body can't be blank")

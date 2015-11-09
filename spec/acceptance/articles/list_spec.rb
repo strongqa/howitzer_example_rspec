@@ -9,7 +9,7 @@ feature "Articles list" do
     log_in_as(user)
   end
 
-  scenario "User view articles list" do
+  scenario "User view articles list", :smoke => true do
     ArticleListPage.open
     expect(ArticleListPage.given.text).to include(@article1.title)
     expect(ArticleListPage.given.text).to include(@article1.text)
