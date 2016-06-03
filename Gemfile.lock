@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: a179d34591fd680be45f8a74d8504016dc9f36aa
+  revision: a2c4fbca69740d8295c08c51040a02b1421c4a8e
   branch: new_dsl
   specs:
     howitzer (1.1.0)

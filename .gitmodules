@@ -1,7 +1,3 @@
-[submodule "pages"]
-	path = pages
-	url = https://github.com/strongqa/howitzer_example_pages.git
-	branch = new_dsl
 [submodule "emails"]
 	path = emails
 	url = https://github.com/strongqa/howitzer_example_emails.git
