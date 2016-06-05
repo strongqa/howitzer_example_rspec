@@ -15,10 +15,10 @@ feature "Article Viewing" do
     expect(ArticlePage.given.text).to include(settings.def_test_user)
     expect(ArticlePage.given.text).to include(@comment.body)
     expect(ArticlePage.given).to have_comment_form_element
-    expect(ArticlePage.given).to have_body_field_element
-    expect(ArticlePage.given).to have_edit_button_element
+    expect(ArticlePage.given).to have_comment_field_element
+    expect(ArticlePage.given).to have_edit_article_button_element
     expect(ArticlePage.given).to have_add_comment_button_element
-    expect(ArticlePage.given).to have_destroy_comment_link_present(@comment.body)
+    expect(ArticlePage.given).to have_destroy_comment_element(@comment.body)
   end
 
   scenario "Admin can be redirected from article page back to article list", :p1 => true do

@@ -24,7 +24,7 @@ feature "Sign Up" do
         email: user.email,
         password: user.password,
         password_confirmation: user.password).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(HomePage.given.text).to include('A message with a confirmation link has been sent to your email address. Please open the link to activate your account.')
 
     ConfirmationInstructionEmail.
@@ -45,7 +45,7 @@ feature "Sign Up" do
         email: nil,
         password: nil,
         password_confirmation: nil).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(SignUpPage.given.text).to include("2 errors prohibited this user from being saved: Email can't be blank Password can't be blank")
   end
 
@@ -57,7 +57,7 @@ feature "Sign Up" do
         email: user.email,
         password: nil,
         password_confirmation: nil).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Password can't be blank")
   end
 
@@ -69,7 +69,7 @@ feature "Sign Up" do
         email: nil,
         password: user.password,
         password_confirmation: user.password).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Email can't be blank")
   end
 
@@ -80,7 +80,7 @@ feature "Sign Up" do
         email: 'test.1234567890',
         password: nil,
         password_confirmation: nil).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     SignUpPage.wait_for_opened
   end
 
@@ -92,7 +92,7 @@ feature "Sign Up" do
         email: user.email,
         password: '1234567',
         password_confirmation: '1234567').submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)")
   end
 
@@ -104,7 +104,7 @@ feature "Sign Up" do
         email: user.email,
         password: '1234567890',
         password_confirmation: '1234567890123').submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(SignUpPage.given.text).to include("1 error prohibited this user from being saved: Password confirmation doesn't match Password")
   end
 
@@ -115,7 +115,7 @@ feature "Sign Up" do
         email: user.email,
         password: user.password,
         password_confirmation: user.password).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(SignUpPage.given.text).to include('1 error prohibited this user from being saved: Email has already been taken')
   end
 end

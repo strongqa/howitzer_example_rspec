@@ -24,7 +24,7 @@ feature "Log In" do
         open.fill_form(
         email: @user1.email,
         password: nil).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
@@ -33,7 +33,7 @@ feature "Log In" do
           open.fill_form(
           email: nil,
           password: @user1.email).submit_form
-      expect(HomePage).to_not be_authenticated
+      expect(HomePage).to be_not_authenticated
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
@@ -42,7 +42,7 @@ feature "Log In" do
         open.fill_form(
         email: nil,
         password: nil ).submit_form
-      expect(HomePage).to_not be_authenticated
+      expect(HomePage).to be_not_authenticated
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
@@ -51,7 +51,7 @@ feature "Log In" do
         open.fill_form(
         email: 'test@test.com',
         password: @user1.password ).submit_form
-      expect(HomePage).to_not be_authenticated
+      expect(HomePage).to be_not_authenticated
       expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
@@ -60,7 +60,7 @@ feature "Log In" do
          open.fill_form(
          email: @user1.email,
          password: 'test_password' ).submit_form
-     expect(HomePage).to_not be_authenticated
+     expect(HomePage).to be_not_authenticated
      expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
@@ -69,7 +69,7 @@ feature "Log In" do
         open.fill_form(
         email: 'test@test.com',
         password: 'test_password' ).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 
@@ -78,7 +78,7 @@ feature "Log In" do
         open.fill_form(
         email: 'test.1234567890',
         password: nil ).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     LoginPage.wait_for_opened
   end
 
@@ -89,7 +89,7 @@ feature "Log In" do
         open.fill_form(
         email: user2.email,
         password: user2.password).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(LoginPage.given.text).to include("You have to confirm your account before continuing.")
   end
 
@@ -100,7 +100,7 @@ feature "Log In" do
         open.fill_form(
         email:@user1.email,
         password: @user1.password).submit_form
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     expect(LoginPage.given.text).to include("Invalid email or password.")
   end
 

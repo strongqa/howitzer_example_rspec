@@ -15,7 +15,7 @@ feature "Account Editing" do
                   current_password: @user1.password).submit_form
     expect(HomePage.given.flash_message).to eql('You updated your account successfully.')
     HomePage.given.choose_menu('Logout')
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     LoginPage.open.fill_form(email: @user1.email,
                   password: user2.password).submit_form
     expect(HomePage).to be_authenticated
@@ -40,7 +40,7 @@ feature "Account Editing" do
         confirm_my_account
     expect(HomePage.given.flash_message).to eql('Your account was successfully confirmed.')
     HomePage.given.choose_menu('Logout')
-    expect(HomePage).to_not be_authenticated
+    expect(HomePage).to be_not_authenticated
     LoginPage.open.fill_form(email: user2.email,
                               password: @user1.password).submit_form
     expect(HomePage).to be_authenticated
