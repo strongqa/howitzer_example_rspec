@@ -8,4 +8,4 @@
 	branch = new_dsl
 [submodule "web"]
 	path = web
-	url = git@github.com:strongqa/howitzer_example_web.git
+	url = https://github.com/strongqa/howitzer_example_web.git
