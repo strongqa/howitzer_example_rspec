@@ -43,7 +43,7 @@ RSpec.configure do |config|
       log.info "SAUCE VIDEO #{@session_start} - #{session_end} URL: #{sauce_resource_path('video.flv')}"
     elsif Howitzer::Helpers.ie_browser?
       log.info 'IE reset session'
-      page.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
+      execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
     end
   end
 
