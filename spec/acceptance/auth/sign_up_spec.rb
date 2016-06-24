@@ -6,14 +6,14 @@ feature "Sign Up" do
     HomePage.
         open.
         choose_menu('Sign up')
-    SignUpPage.wait_for_opened
+    expect(SignUpPage).to be_displayed
   end
 
   scenario "Visitor can open sign up page via menu from login page", :smoke => true do
     LoginPage.
         open.
         choose_menu('Sign up')
-    SignUpPage.wait_for_opened
+    expect(SignUpPage).to be_displayed
   end
 
   scenario "User can sign up with correct data" do
@@ -81,7 +81,7 @@ feature "Sign Up" do
         password: nil,
         password_confirmation: nil).submit_form
     expect(HomePage).to be_not_authenticated
-    SignUpPage.wait_for_opened
+    expect(SignUpPage).to be_displayed
   end
 
   scenario "User can not sign up with too short password", :p1 => true do

@@ -30,7 +30,7 @@ module SignUpHelper
         fill_form(email: user.email, password: user.password).
         submit_form
     expect(HomePage).to be_authenticated
-    HomePage.wait_for_opened
+    expect(HomePage).to be_displayed
   end
 
   def log_in_as_admin
@@ -39,7 +39,7 @@ module SignUpHelper
         fill_form(email: settings.def_test_user, password: settings.def_test_pass).
         submit_form
     expect(HomePage).to be_authenticated
-    HomePage.wait_for_opened
+    expect(HomePage).to be_displayed
   end
 end
 

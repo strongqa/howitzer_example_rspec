@@ -3,9 +3,9 @@ require 'spec_helper'
 feature "Blank page" do
   scenario "Testing General Blank Page" do
     HomePage.open
-    HomePage.wait_for_opened
+    expect(HomePage).to be_displayed
     Howitzer::Web::BlankPage.open
-    Howitzer::Web::BlankPage.wait_for_opened
+    expect(Howitzer::Web::BlankPage).to be_displayed
   end
 
 end
