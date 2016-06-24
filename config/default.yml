@@ -45,8 +45,8 @@
  pjs_ignore_ssl_errors: true
 
  # -SauceLabs-
- sl_user: some_user
- sl_api_key: some_api_key
+ sl_user: admin@howitzer-framework.io
+ sl_api_key: URU=Yh43^xU?T69%o,?x
  sl_url: "http://${sl_user}:${sl_api_key}@ondemand.saucelabs.com:80/wd/hub"
  sl_platform: :VISTA
  sl_browser_name: firefox
@@ -55,8 +55,8 @@
  sl_idle_timeout: '180'
 
  # -TestingBot- browsers that are supported: firefox => '8', googlechrome, iexplore => '9'
- tb_api_key: client_key
- tb_api_secret: client_secret
+ tb_api_key: admin@howitzer-framework.io
+ tb_api_secret: ktK]4M=v8x%z[PA@c32,
  tb_url: "http://${tb_api_key}:${tb_api_secret}@hub.testingbot.com:80/wd/hub"
  tb_platform: :WIN8
  tb_browser_name: firefox
@@ -67,8 +67,8 @@
  tb_record_screenshot: false
 
  # -BrowserStack
- bs_user_name: bs_user
- bs_password: bs_password
+ bs_user_name: admin@howitzer-framework.io
+ bs_password: Da;8^WnF&7,Wp@2yH/X8
  bs_url: "http://${bs_user_name}:${bs_password}@hub.browserstack.com/wd/hub"
  bs_os_name: 'Windows'
  bs_os_version: '8'
