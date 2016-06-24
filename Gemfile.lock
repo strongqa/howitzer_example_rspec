@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: 9bf154252184312bf49d73af1473ca0d0912fb5e
+  revision: be50a22701d375f0c907c360caf2fabe3d942c9b
   branch: new_dsl
   specs:
     howitzer (1.1.0)
@@ -72,7 +72,7 @@ GEM
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (11.1.2)
+    rake (11.2.2)
     repeater (0.0.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -92,7 +92,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     rubyzip (1.2.0)
-    selenium-webdriver (2.53.1)
+    selenium-webdriver (2.53.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
