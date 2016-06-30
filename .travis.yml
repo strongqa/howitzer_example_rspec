@@ -1,5 +1,5 @@
 language: ruby
 rvm:
-  - 2.2.0
+  - 2.3.1
 script:
   - bundle exec rake features:smoke features:bvt features:p1 features:p2
