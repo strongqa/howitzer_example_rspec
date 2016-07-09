@@ -9,6 +9,7 @@ feature "Log In" do
   scenario "user can open login page via menu" do
     HomePage.
         open.
+        main_menu_section.
         choose_menu('Login')
     expect(LoginPage).to be_displayed
   end

@@ -21,14 +21,14 @@ feature "Article Editing" do
     ArticlePage.given.click_article_button('Edit')
     EditArticlePage.given.fill_form(title: '', text: '')
         .submit_form
-    expect(EditArticlePage.given.error_message).to eql("2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)")
+    expect(EditArticlePage.given.errors_section.error_message).to eql("2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)")
   end
 
   scenario "User can not edit article with title is too short", :p1 => true do
     ArticlePage.given.click_article_button('Edit')
     EditArticlePage.given.fill_form(title: '1234', text: '')
         .submit_form
-    expect(EditArticlePage.given.error_message).to eql("1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)")
+    expect(EditArticlePage.given.errors_section.error_message).to eql("1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)")
   end
 
 end
