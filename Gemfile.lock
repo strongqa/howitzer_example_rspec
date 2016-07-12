@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: be50a22701d375f0c907c360caf2fabe3d942c9b
+  revision: fc81c793b6314280a2c0e47b443aa692704b6b1d
   branch: new_dsl
   specs:
     howitzer (1.1.0)
@@ -10,6 +10,7 @@ GIT
       gli
       launchy
       log4r (~> 1.1.10)
+      rack (~> 1.6.4)
       rake
       rspec (~> 3.2)
       selenium-webdriver
@@ -45,7 +46,7 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.10)
+    ffi (1.9.14)
     gli (2.14.0)
     her (0.8.1)
       activemodel (>= 3.0.0, <= 4.3.0)
@@ -78,21 +79,21 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.4)
-      rspec-support (~> 3.4.0)
-    rspec-expectations (3.4.0)
+    rspec (3.5.0)
+      rspec-core (~> 3.5.0)
+      rspec-expectations (~> 3.5.0)
+      rspec-mocks (~> 3.5.0)
+    rspec-core (3.5.1)
+      rspec-support (~> 3.5.0)
+    rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.1)
+      rspec-support (~> 3.5.0)
+    rspec-mocks (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-support (3.4.1)
+      rspec-support (~> 3.5.0)
+    rspec-support (3.5.0)
     rubyzip (1.2.0)
-    selenium-webdriver (2.53.3)
+    selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
