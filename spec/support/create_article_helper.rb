@@ -13,7 +13,7 @@ module CreateArticleHelper
   def open_article(article)
     ArticleListPage.open.open_article(article.title)
     expect(ArticlePage).to be_authenticated
-    ArticlePage.wait_for_opened
+    ArticlePage.displayed?
   end
 end
 

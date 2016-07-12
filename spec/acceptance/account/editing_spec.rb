@@ -51,7 +51,7 @@ feature "Account Editing" do
     log_in_as(@user1)
     EditAccountPage.open.fill_form(email: 'test@.ua',
                   current_password: @user1.password).submit_form
-    EditAccountPage.wait_for_opened
+    EditAccountPage.displayed?
   end
 
   scenario "User can not edit account with existing email", :p1 => true do

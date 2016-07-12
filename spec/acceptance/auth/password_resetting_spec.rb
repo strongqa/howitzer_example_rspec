@@ -40,7 +40,7 @@ feature "Password Resetting" do
     ForgotPasswordPage.given.
         fill_form(email: "test.1234567890").
         submit_form
-    ForgotPasswordPage.wait_for_opened
+    ForgotPasswordPage.displayed?
   end
 
   scenario "user can login with old password until confirmation email for new password is not confirmed" do
