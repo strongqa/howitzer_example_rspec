@@ -7,13 +7,13 @@ module CreateArticleHelper
   end
 
   def logout
-    ArticlePage.given.choose_menu('Logout')
+    ArticlePage.given.main_menu_section.choose_menu('Logout')
   end
 
   def open_article(article)
     ArticleListPage.open.open_article(article.title)
     expect(ArticlePage).to be_authenticated
-    ArticlePage.displayed?
+    expect(ArticlePage).to be_displayed
   end
 end
 

@@ -9,14 +9,15 @@ feature "Log In" do
   scenario "user can open login page via menu" do
     HomePage.
         open.
+        main_menu_section.
         choose_menu('Login')
-    LoginPage.displayed?
+    expect(LoginPage).to be_displayed
   end
 
   scenario "Visitor can login with correct credentials" do
     log_in_as(@user1)
     expect(HomePage).to be_authenticated
-    HomePage.displayed?
+    expect(HomePage).to be_displayed
   end
 
   scenario "User can not login with blank password", :p1 => true do
@@ -79,7 +80,7 @@ feature "Log In" do
         email: 'test.1234567890',
         password: nil ).submit_form
     expect(HomePage).to be_not_authenticated
-    LoginPage.displayed?
+    expect(LoginPage).to be_displayed
   end
 
   scenario "User can not login until confirmation email is not confirmed" do
