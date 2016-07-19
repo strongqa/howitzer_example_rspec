@@ -5,9 +5,10 @@ source 'https://rubygems.org'
 #
 # gem 'capybara-webkit'
 
+gem 'sexy_settings', github: 'romikoops/sexy_settings', branch: 'master'
 gem 'howitzer', github: 'strongqa/howitzer', branch: 'new_dsl'
 # Uncomment it if you are going to use 'testingbot' service. See It's web-site: https://testingbot.com
-# gem 'testingbot'
+gem 'testingbot'
 # Uncomment it if you are going to use 'poltergeist' driver. PhantomJS should be installed.
 # See https://github.com/jnicklas/capybara#poltergeist
 # gem 'poltergeist'
