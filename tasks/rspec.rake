@@ -3,7 +3,7 @@ RSPEC_OPTS = [
   '--format html',
   "--out ./#{Howitzer.settings.log_dir}/#{Howitzer.settings.html_log}",
   '--format documentation',
-  ' --color'
+  '--color'
 ].join(' ').freeze
 
 RSpec::Core::RakeTask.new(:rspec, 'Run all rspec scenarios') do |t|

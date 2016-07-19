@@ -1,13 +1,6 @@
 GIT
-  remote: git://github.com/romikoops/sexy_settings.git
-  revision: e8ba15d6f37e878b7da9fa8d498e2cdc91e71596
-  branch: master
-  specs:
-    sexy_settings (0.0.1)
-
-GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: fc81c793b6314280a2c0e47b443aa692704b6b1d
+  revision: a12588d1de2a5819a146ceee3432341f030ba116
   branch: new_dsl
   specs:
     howitzer (1.1.0)
@@ -26,10 +19,10 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (4.2.6)
-      activesupport (= 4.2.6)
+    activemodel (4.2.7)
+      activesupport (= 4.2.7)
       builder (~> 3.1)
-    activesupport (4.2.6)
+    activesupport (4.2.7)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -53,7 +46,7 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.13)
+    ffi (1.9.14)
     gli (2.14.0)
     her (0.8.1)
       activemodel (>= 3.0.0, <= 4.3.0)
@@ -107,6 +100,7 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    sexy_settings (0.0.2)
     testingbot (0.1.7)
       json
       net-http-persistent
@@ -131,7 +125,6 @@ DEPENDENCIES
   repeater
   rest-client
   rspec (~> 3.2)
-  sexy_settings!
   testingbot
 
 BUNDLED WITH
