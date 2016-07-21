@@ -8,10 +8,11 @@ feature "Home" do
 
   scenario "visitor can see home page of web application", :smoke => true do
     article=build(:article)
-    NewArticlePage.given.fill_form(title: article.title, text: article.text)
-        .submit_form
+    NewArticlePage.on do
+      fill_form(title: article.title, text: article.text)
+      submit_form
+    end
     HomePage.open
-    expect(HomePage.given.find_form_text('Today')).to include(article.title)
+    HomePage.on { expect(find_form_text('Today')).to include(article.title) }
   end
-
 end

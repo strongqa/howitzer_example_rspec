@@ -6,7 +6,8 @@ feature "Viewing Users" do
     user1 = build(:user).save!
     user2 = build(:user).save!
     log_in_as(user2)
-    UsersPage.open.open_user(user1.email)
-    expect(UserViewPage.given.text).to include(user1.email)
+    UsersPage.open
+    UsersPage.on { open_user(user1.email) }
+    UserViewPage.on { expect(text).to include(user1.email) }
   end
 end

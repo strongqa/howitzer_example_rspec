@@ -10,10 +10,14 @@ feature "Articles list" do
   end
 
   scenario "User view articles list", :smoke => true do
+    article1 = @article1
+    article2 = @article2
     ArticleListPage.open
-    expect(ArticleListPage.given.text).to include(@article1.title)
-    expect(ArticleListPage.given.text).to include(@article1.text)
-    expect(ArticleListPage.given.text).to include(@article2.title)
-    expect(ArticleListPage.given.text).to include(@article2.text)
+    ArticleListPage.on do
+      expect(text).to include(article1.title)
+      expect(text).to include(article1.text)
+      expect(text).to include(article2.title)
+      expect(text).to include(article2.text)
+    end
   end
 end
