@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: fc81c793b6314280a2c0e47b443aa692704b6b1d
+  revision: bc973eb565e20fc8bcc4cefec856e92131f3fa08
   branch: new_dsl
   specs:
     howitzer (1.1.0)
@@ -46,7 +46,7 @@ GEM
       activesupport (>= 3.0.0)
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.13)
+    ffi (1.9.14)
     gli (2.14.0)
     her (0.8.1)
       activemodel (>= 3.0.0, <= 4.3.0)
@@ -99,7 +99,7 @@ GEM
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    sexy_settings (0.0.1)
+    sexy_settings (0.0.2)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
