@@ -4,7 +4,8 @@ feature "Article adding" do
 
   before(:each) do
     log_in_as_admin
-    ArticleListPage.open.add_new_article
+    ArticleListPage.open
+    ArticleListPage.on { add_new_article }
   end
 
   scenario "User can add article with correct data" do
@@ -32,7 +33,7 @@ feature "Article adding" do
     NewArticlePage.on do
       fill_form(title: "1234", text: article.text)
       submit_form
-    expect(text).to include("1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)")
+      expect(text).to include("1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)")
     end
   end
 end

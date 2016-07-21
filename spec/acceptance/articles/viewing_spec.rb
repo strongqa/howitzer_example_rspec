@@ -25,9 +25,7 @@ feature "Article Viewing" do
   end
 
   scenario "Admin can be redirected from article page back to article list", :p1 => true do
-    ArticlePage.on do
-      back_to_article_list
-    end
+    ArticlePage.on { back_to_article_list }
     expect(ArticleListPage).to be_displayed
   end
 end

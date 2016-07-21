@@ -13,8 +13,6 @@ feature "Home" do
       submit_form
     end
     HomePage.open
-    HomePage.on do
-      expect(find_form_text('Today')).to include(article.title)
-    end
+    HomePage.on { expect(find_form_text('Today')).to include(article.title) }
   end
 end

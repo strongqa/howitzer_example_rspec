@@ -4,9 +4,7 @@ feature "Log In" do
 
   scenario "user can open login page via menu" do
     HomePage.open
-    HomePage.on do
-      main_menu_section.choose_menu('Login')
-    end
+    HomePage.on { main_menu_section.choose_menu('Login') }
     expect(LoginPage).to be_displayed
   end
 

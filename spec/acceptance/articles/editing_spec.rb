@@ -10,9 +10,7 @@ feature "Article Editing" do
 
   scenario "User can edit article with correct credentials" do
     article1 = build(:article)
-    ArticlePage.on do
-      click_article_button('Edit')
-    end
+    ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: article1.title, text: article1.text)
       submit_form
@@ -24,9 +22,7 @@ feature "Article Editing" do
   end
 
   scenario "User can not edit article with blank title", :p1 => true do
-    ArticlePage.on do
-      click_article_button('Edit')
-    end
+    ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '', text: '')
       submit_form
@@ -36,9 +32,7 @@ feature "Article Editing" do
 
 
   scenario "User can not edit article with title is too short", :p1 => true do
-    ArticlePage.on do
-      click_article_button('Edit')
-    end
+    ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '1234', text: '')
       submit_form

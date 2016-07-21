@@ -4,17 +4,13 @@ feature "Sign Up" do
 
   scenario "Visitor can open sign up page via menu from home page", :smoke => true do
     HomePage.open
-    HomePage.on do
-      main_menu_section.choose_menu('Sign up')
-    end
+    HomePage.on { main_menu_section.choose_menu('Sign up') }
     expect(SignUpPage).to be_displayed
   end
 
   scenario "Visitor can open sign up page via menu from login page", :smoke => true do
     LoginPage.open
-    LoginPage.on do
-      main_menu_section.choose_menu('Sign up')
-    end
+    LoginPage.on { main_menu_section.choose_menu('Sign up') }
     expect(SignUpPage).to be_displayed
   end
 
