@@ -1,11 +1,9 @@
 [submodule "emails"]
 	path = emails
 	url = https://github.com/strongqa/howitzer_example_emails.git
-	branch = new_dsl
 [submodule "prerequisites"]
 	path = prerequisites
 	url = https://github.com/strongqa/howitzer_example_prerequisites.git
-	branch = new_dsl
 [submodule "web"]
 	path = web
 	url = https://github.com/strongqa/howitzer_example_web.git
