@@ -48,7 +48,7 @@
  sl_user: some_user
  sl_api_key: some_api_key
  sl_url: "http://${sl_user}:${sl_api_key}@ondemand.saucelabs.com:80/wd/hub"
- sl_platform: :VISTA
+ sl_platform: 'OS X 10.11'
  sl_browser_name: firefox
  sl_selenium_version: "2.18.0"
  sl_max_duration: '1800'
