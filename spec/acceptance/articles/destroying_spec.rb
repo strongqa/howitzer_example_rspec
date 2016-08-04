@@ -4,7 +4,7 @@ feature "Article destroying" do
 
   before(:each) do
     log_in_as_admin
-    @article = build(:article).save!
+    @article = create(:article)
     ArticleListPage.open
   end
 

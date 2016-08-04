@@ -3,9 +3,9 @@ require 'spec_helper'
 feature "Articles list" do
 
   background "Create article and user" do
-    @article1 = build(:article).save!
-    @article2 = build(:article).save!
-    user = build(:user).save!
+    @article1 = create(:article)
+    @article2 = create(:article)
+    user = create(:user)
     log_in_as(user)
   end
 

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "Account cancelling" do
   scenario "User can cancel his own account if he is signed in" do
-    user = build(:user).save!
+    user = create(:user)
     log_in_as(user)
 
     EditAccountPage.open
@@ -13,5 +13,3 @@ feature "Account cancelling" do
   end
 
 end
-
-

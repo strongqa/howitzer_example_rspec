@@ -3,9 +3,9 @@ require 'spec_helper'
 feature "Adding Comment" do
 
   background "Create article, user, comment" do
-    article = build(:article).save!
+    article = create(:article)
     @comment = build(:comment)
-    user = build(:user).save!
+    user = create(:user)
     log_in_as(user)
     ArticlePage.open(id: article.id)
   end

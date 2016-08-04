@@ -4,7 +4,7 @@ feature "Article Editing" do
 
   background "log in as admin" do
     log_in_as_admin
-    article = build(:article).save!
+    article = create(:article)
     ArticlePage.open(id: article.id)
   end
 

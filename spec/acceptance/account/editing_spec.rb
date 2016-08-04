@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Account Editing" do
 
   scenario "User can edit password and name with correct credentials" do
-    user1 = build(:user).save!
+    user1 = create(:user, email: '')
     user2 = build(:user)
     log_in_as(user1)
     EditAccountPage.open
@@ -38,7 +38,7 @@ feature "Account Editing" do
   end
 
   scenario "User can edit email with correct credentials", :p1 => true do
-    user1 = build(:user).save!
+    user1 = create(:user)
     user2 = build(:user)
     log_in_as(user1)
     EditAccountPage.open
@@ -72,7 +72,7 @@ feature "Account Editing" do
   end
 
   scenario "User can not edit account with incorrect email", :p1 => true do
-    user1 = build(:user).save!
+    user1 = create(:user)
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
@@ -84,7 +84,7 @@ feature "Account Editing" do
   end
 
   scenario "User can not edit account with existing email", :p1 => true do
-    user1 = build(:user).save!
+    user1 = create(:user)
     user2 = create(:user)
     log_in_as(user2)
     EditAccountPage.open
@@ -99,7 +99,7 @@ feature "Account Editing" do
   end
 
   scenario "User can not edit account with incorrect password", :p1 => true do
-    user1 = build(:user).save!
+    user1 = create(:user)
     user2 = build(:user)
     log_in_as(user1)
     EditAccountPage.open
@@ -115,7 +115,7 @@ feature "Account Editing" do
   end
 
   scenario "User can not edit account with incorrect password confirmation", :p1 => true do
-    user1 = build(:user).save!
+    user1 = create(:user)
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
@@ -130,7 +130,7 @@ feature "Account Editing" do
   end
 
   scenario "User can not edit account with short password (less then 8 characters)", :p1 => true do
-    user1 = build(:user).save!
+    user1 = create(:user)
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do

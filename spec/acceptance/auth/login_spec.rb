@@ -9,14 +9,14 @@ feature "Log In" do
   end
 
   scenario "Visitor can login with correct credentials" do
-    user = build(:user).save!
+    user = create(:user)
     log_in_as(user)
     expect(HomePage).to be_authenticated
     expect(HomePage).to be_displayed
   end
 
   scenario "User can not login with blank password", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
     LoginPage.open
     LoginPage.on do
       fill_form(email: user.email,
@@ -30,7 +30,7 @@ feature "Log In" do
   end
 
   scenario "User can not login with blank email", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
     LoginPage.open
     LoginPage.on do
       fill_form(email: nil,
@@ -57,7 +57,7 @@ feature "Log In" do
   end
 
   scenario "User can not login with incorrect email", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
     LoginPage.open
     LoginPage.on do
       fill_form(email: 'test@test.com',
@@ -71,7 +71,7 @@ feature "Log In" do
   end
 
   scenario "User can not login with incorrect password", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
      LoginPage.open
      LoginPage.on do
        fill_form(email: user.email,
@@ -124,7 +124,7 @@ feature "Log In" do
   end
 
   scenario "Canceled user can not login" do
-    user = build(:user).save!
+    user = create(:user)
     log_in_as(user)
     cancel_account
     LoginPage.open

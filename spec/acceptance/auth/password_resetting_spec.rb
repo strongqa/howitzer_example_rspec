@@ -3,7 +3,7 @@ require 'spec_helper'
 feature "Password Resetting" do
 
   scenario "User can reset password with correct data" do
-    user1 = build(:user).save!
+    user1 = create(:user)
     user2 = build(:user)
     user_restores_password(user1.email)
     ChangePasswordPage.on do
@@ -17,7 +17,7 @@ feature "Password Resetting" do
   end
 
   scenario "user can not reset password with incorrect confirmation password", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
     user_restores_password(user.email)
     ChangePasswordPage.on do
       fill_form(new_password: 1234567890,
@@ -28,7 +28,7 @@ feature "Password Resetting" do
   end
 
   scenario "user can not reset password with too short new password", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
     user_restores_password(user.email)
     ChangePasswordPage.on do
       fill_form(new_password: 1234567,
@@ -49,7 +49,7 @@ feature "Password Resetting" do
   end
 
   scenario "user can login with old password until confirmation email for new password is not confirmed" do
-    user = build(:user).save!
+    user = create(:user)
     LoginPage.open
     LoginPage.on { navigate_to_forgot_password_page }
     ForgotPasswordPage.on do

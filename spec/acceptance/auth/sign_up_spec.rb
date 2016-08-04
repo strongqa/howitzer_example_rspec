@@ -132,7 +132,7 @@ feature "Sign Up" do
   end
 
   scenario "User cannot sign up with duplicated email", :p1 => true do
-    user = build(:user).save!
+    user = create(:user)
     SignUpPage.open
     SignUpPage.on do
       fill_form(email: user.email,
