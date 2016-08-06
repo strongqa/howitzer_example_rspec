@@ -29,7 +29,7 @@ module SignUpHelper
     end
     HomePage.on do
       expect(text).to include(
-        'A message with a confirmation link has been sent to your email address.' /
+        'A message with a confirmation link has been sent to your email address.' \
         ' Please open the link to activate your account.'
       )
     end

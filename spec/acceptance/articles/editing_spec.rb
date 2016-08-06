@@ -26,7 +26,7 @@ feature 'Article Editing' do
       fill_form(title: '', text: '')
       submit_form
       expect(errors_section.error_message).to eql(
-        '2 errors prohibited this article from being saved:' /
+        '2 errors prohibited this article from being saved:' \
         " Title can't be blank Title is too short (minimum is 5 characters)"
       )
     end

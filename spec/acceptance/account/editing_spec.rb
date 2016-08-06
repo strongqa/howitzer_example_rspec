@@ -51,7 +51,7 @@ feature 'Account Editing' do
     end
     HomePage.on do
       expect(flash_section.flash_message).to eql(
-        'You updated your account successfully, but we need to verify your new email address.' /
+        'You updated your account successfully, but we need to verify your new email address.' \
         ' Please check your email and click on the confirm link to finalize confirming your new email address.'
       )
     end

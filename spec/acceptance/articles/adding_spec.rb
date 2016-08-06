@@ -24,7 +24,7 @@ feature 'Article adding' do
       fill_form
       submit_form
       expect(text).to include(
-        "2 errors prohibited this article from being saved: Title can't be blank" /
+        "2 errors prohibited this article from being saved: Title can't be blank" \
         ' Title is too short (minimum is 5 characters)'
       )
     end
