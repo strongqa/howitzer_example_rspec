@@ -16,6 +16,6 @@ gem 'repeater'
 gem 'her'
 gem 'factory_girl'
 gem 'rspec', '~>3.2'
-
+gem 'rubocop'
 gem 'pry'
 gem 'pry-byebug'

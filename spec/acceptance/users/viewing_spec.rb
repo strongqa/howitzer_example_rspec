@@ -1,8 +1,7 @@
 require 'spec_helper'
 
-feature "Viewing Users" do
-
-  scenario "User is viewing other user on user page" do
+feature 'Viewing Users' do
+  scenario 'User is viewing other user on user page' do
     user1 = create(:user)
     user2 = create(:user)
     log_in_as(user2)

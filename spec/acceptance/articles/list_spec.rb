@@ -1,15 +1,14 @@
 require 'spec_helper'
 
-feature "Articles list" do
-
-  background "Create article and user" do
+feature 'Articles list' do
+  background 'Create article and user' do
     @article1 = create(:article)
     @article2 = create(:article)
     user = create(:user)
     log_in_as(user)
   end
 
-  scenario "User view articles list", :smoke => true do
+  scenario 'User view articles list', smoke: true do
     article1 = @article1
     article2 = @article2
     ArticleListPage.open

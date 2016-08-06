@@ -1,20 +1,31 @@
 module CreateArticleHelper
+  # rubocop:disable Metrics/AbcSize
   def create_article(article)
-    NewArticlePage.open.fill_form(title: article.title, text: article.text)
-        .submit_form
-    expect(ArticlePage.given.text).to include(article.title)
-    expect(ArticlePage.given.text).to include(article.text)
+    NewArticlePage.open
+    NewArticlePage.on do
+      fill_form(title: article.title, text: article.text)
+      submit_form
+    end
+    ArticlePage.on do
+      expect(text).to include(article.title)
+      expect(text).to include(article.text)
+    end
   end
 
   def logout
-    ArticlePage.given.main_menu_section.choose_menu('Logout')
+    ArticlePage.on do
+      main_menu_section
+      choose_menu('Logout')
+    end
   end
 
   def open_article(article)
-    ArticleListPage.open.open_article(article.title)
+    ArticleListPage.open
+    ArticleListPage.on { open_article(article.title) }
     expect(ArticlePage).to be_authenticated
     expect(ArticlePage).to be_displayed
   end
+  # rubocop:enable Metrics/AbcSize
 end
 
 RSpec.configure do |config|

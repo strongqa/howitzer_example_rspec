@@ -1,14 +1,17 @@
 require 'spec_helper'
 
-feature "Article Viewing" do
-  background "Create article, comment" do
+feature 'Article Viewing' do
+  background 'Create article, comment' do
     @article = create(:article)
-    @comment = @article.comments.create(body: "Some comment", user_id: User.where(email: settings.def_test_user).all.first.id)
+    @comment = @article.comments.create(
+      body: 'Some comment',
+      user_id: User.where(email: settings.def_test_user).all.first.id
+    )
     log_in_as_admin
     ArticlePage.open(id: @article.id)
   end
 
-  scenario "Admin is viewing article page" do
+  scenario 'Admin is viewing article page' do
     article = @article
     comment = @comment
     ArticlePage.on do
@@ -24,7 +27,7 @@ feature "Article Viewing" do
     end
   end
 
-  scenario "Admin can be redirected from article page back to article list", :p1 => true do
+  scenario 'Admin can be redirected from article page back to article list', p1: true do
     ArticlePage.on { back_to_article_list }
     expect(ArticleListPage).to be_displayed
   end
