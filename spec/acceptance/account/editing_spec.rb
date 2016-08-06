@@ -7,11 +7,13 @@ feature 'Account Editing' do
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
-      fill_form(user_name: user2.name,
-                email: user1.email,
-                password: user2.password,
-                password_confirmation: user2.password,
-                current_password: user1.password)
+      fill_form(
+        user_name: user2.name,
+        email: user1.email,
+        password: user2.password,
+        password_confirmation: user2.password,
+        current_password: user1.password
+      )
       submit_form
     end
     expect(HomePage).to be_displayed
@@ -22,8 +24,10 @@ feature 'Account Editing' do
     expect(HomePage).to be_not_authenticated
     LoginPage.open
     LoginPage.on do
-      fill_form(email: user1.email,
-                password: user2.password)
+      fill_form(
+        email: user1.email,
+        password: user2.password
+      )
       submit_form
     end
     expect(HomePage).to be_authenticated
@@ -64,8 +68,10 @@ feature 'Account Editing' do
     expect(HomePage).to be_not_authenticated
     LoginPage.open
     LoginPage.on do
-      fill_form(email: user2.email,
-                password: user1.password)
+      fill_form(
+        email: user2.email,
+        password: user1.password
+      )
       submit_form
     end
     expect(HomePage).to be_authenticated
@@ -79,8 +85,11 @@ feature 'Account Editing' do
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
-      fill_form(email: 'test@.ua',
-                current_password: user1.password)
+      fill_form(
+        user_name: user1.name,
+        email: 'test@.ua',
+        current_password: user1.password
+      )
       submit_form
     end
     expect(EditAccountPage).to be_displayed
@@ -92,8 +101,11 @@ feature 'Account Editing' do
     log_in_as(user2)
     EditAccountPage.open
     EditAccountPage.on do
-      fill_form(email: user1.email,
-                current_password: user2.password)
+      fill_form(
+        user_name: user1.name,
+        email: user1.email,
+        current_password: user2.password
+      )
       submit_form
     end
     EditAccountPage.on do
@@ -109,9 +121,13 @@ feature 'Account Editing' do
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
-      fill_form(password: user2.password,
-                password_confirmation: user2.password,
-                current_password: 'incorrect_password')
+      fill_form(
+        user_name: user1.name,
+        email: user1.email,
+        password: user2.password,
+        password_confirmation: user2.password,
+        current_password: 'incorrect_password'
+      )
       submit_form
     end
     EditAccountPage.on do
@@ -126,9 +142,13 @@ feature 'Account Editing' do
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
-      fill_form(password: '12345678',
-                password_confirmation: '123456789',
-                current_password: user1.password)
+      fill_form(
+        user_name: user1.name,
+        email: user1.email,
+        password: '12345678',
+        password_confirmation: '123456789',
+        current_password: user1.password
+      )
       submit_form
     end
     EditAccountPage.on do
@@ -143,9 +163,13 @@ feature 'Account Editing' do
     log_in_as(user1)
     EditAccountPage.open
     EditAccountPage.on do
-      fill_form(password: '1234567',
-                password_confirmation: '1234567',
-                current_password: user1.password)
+      fill_form(
+        user_name: user1.name,
+        email: user1.email,
+        password: '1234567',
+        password_confirmation: '1234567',
+        current_password: user1.password
+      )
       submit_form
     end
     EditAccountPage.on do
