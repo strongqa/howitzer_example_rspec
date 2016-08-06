@@ -8,6 +8,7 @@ feature 'Account Editing' do
     EditAccountPage.open
     EditAccountPage.on do
       fill_form(user_name: user2.name,
+                email: user1.email,
                 password: user2.password,
                 password_confirmation: user2.password,
                 current_password: user1.password)
