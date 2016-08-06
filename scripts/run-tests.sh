@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ev
-bundle exec rake features:smoke
+bundle exec rake rubocop features:smoke
 shopt -s nocasematch;
 if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*phantomjs|poltergeist.* ]]
 then

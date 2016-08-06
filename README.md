@@ -1,63 +1,54 @@
-howitzer_example_rspec
+Howitzer Example Rspec
 =======================
 
-# Howitzer
-[![Build Status](https://travis-ci.org/strongqa/howitzer_example_rspec.svg?branch=master)][travis]
+[![Build Status](https://travis-ci.org/strongqa/howitzer_example_rspec.svg?branch=maste)][travis]
 [![Dependency Status](https://gemnasium.com/strongqa/howitzer_example_rspec.png)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/strongqa/howitzer_example_rspec/badges/gpa.svg)][codeclimate]
-
 
 [travis]: https://travis-ci.org/strongqa/howitzer_example_rspec
 [gemnasium]: https://gemnasium.com/strongqa/howitzer_example_rspec
-[codeclimate]: https://codeclimate.com/github/strongqa/howitzer_example_rspec
 
-Howitzer example project based on Turnip for demo web application http://demoapp.strongqa.com
+Howitzer example project based on Rspec for demo web application http://demoapp.strongqa.com
 
 ## Requirements
-Ruby 2+
-Howitzer 2+
+
+- Ruby 2.2.2+
+- Howitzer 2+
 
 ## Getting Started
 
-  git clone -b new_dsl --recursive git@github.com:strongqa/howitzer_example_rspec.git  
+*Note!* This project uses Git submodules in order to reuse common code between similar projects:
 
-or specific branch
+[howitzer_example_cucumber](https://github.com/strongqa/howitzer_example_cucumber)
+[howitzer_example_turnip](https://github.com/strongqa/howitzer_example_turnip)
 
-```bash
-git clone -b <branch> --recursive git@github.com:strongqa/howitzer_example_rspec.git  
+Typically it is not required for a regular project based on [Howitzer](https://github.com/strongqa/howitzer)
+
+### How to try the project locally
+
+- Clone project
+
+```
+git clone --recursive git@github.com:strongqa/howitzer_example_rspec.git
+```
+
+- Install dependencies
+
+```
 bundle install
+```
+
+- Get list of available commands
+
+```
 rake -T
-```  
+```
 
-##  Contributing
+## Contributing
 
-This repo uses sub modules
+Code quality is controlled by [Rubocop](https://github.com/bbatsov/rubocop)
 
-If you need to change something in any submodule(for example ./emails), please follow following instructions:
+It is useful to activate rubocop pre-commit git hook for changed files.
 
-```bash
-git checkout -b some_branch_name
-cd ./emails
-git checkout master
-git pull origin master
-git checkout -b some_branch_name
-#modify some files
-git add .
-git commit -m 'some text about a change'
-git push origin some_branch_name
-#create Pull request on GitHub
-cd ../
-git add .
-git commit -am 'updated emails submodule'
-git push origin some_branch_name
-#create Pull request on GitHub with link to previous Pull Request and wait until code will be reviewed
-#Merge Pull Request for submodule first
-cd ./emails
-git checkout master
-git pull origin master
-cd ..
-git add .
-git commit -am 'updated emails submodule'
-git push origin some_branch_name
-#Merge Pull Request for main repo
+```
+cp scripts/pre-commit .git/hooks/pre-commit
 ```

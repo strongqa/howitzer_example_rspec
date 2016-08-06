@@ -1,0 +1,9 @@
+#!/bin/sh
+changed_files=`git diff --cached --name-only --diff-filter=ACM | grep '\.rb$' | paste -s -d' ' -`
+if [ "$changed_files" != "" ]; then
+  bundle exec rubocop $changed_files
+  if [ $? -ne 0 ]; then
+    >&2 echo "Rubocop check failed, try running: bundle exec rubocop --auto-correct $changed_files"
+    exit 1
+  fi
+fi
