@@ -56,7 +56,6 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    json (2.0.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     log4r (1.1.10)
@@ -68,7 +67,6 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    net-http-persistent (2.9.4)
     netrc (0.11.0)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -125,10 +123,6 @@ GEM
       websocket (~> 1.0)
     sexy_settings (0.0.2)
     slop (3.6.0)
-    testingbot (0.1.7)
-      json
-      net-http-persistent
-      selenium-webdriver
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -157,7 +151,6 @@ DEPENDENCIES
   rest-client
   rspec (~> 3.2)
   rubocop
-  testingbot
 
 BUNDLED WITH
    1.12.5
