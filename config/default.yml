@@ -54,7 +54,7 @@
  sl_max_duration: '1800'
  sl_idle_timeout: '180'
 
- # -TestingBot- browsers that are supported: firefox => '8', googlechrome, iexplore => '9'
+ # -TestingBot-
  tb_api_key: client_key
  tb_api_secret: client_secret
  tb_url: "http://${tb_api_key}:${tb_api_secret}@hub.testingbot.com/wd/hub"
