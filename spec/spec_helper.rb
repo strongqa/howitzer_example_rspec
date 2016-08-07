@@ -49,7 +49,7 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     if Howitzer::Helpers.sauce_driver?
-      report_failures_count = config.reporter.instance_variable_get(:@failure_count)
+      report_failures_count = config.reporter.failed_examples.count
       Howitzer::Utils::DataStorage.store('sauce', :status, report_failures_count.zero?)
     end
   end
