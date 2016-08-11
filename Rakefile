@@ -1,6 +1,6 @@
 require 'rake'
 require 'rake/clean'
-require 'howitzer/settings'
+require 'howitzer'
 require 'howitzer/utils/log'
 require 'rubocop/rake_task'
 
