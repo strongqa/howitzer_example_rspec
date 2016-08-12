@@ -52,8 +52,8 @@ module SignUpHelper
     LoginPage.open
     LoginPage.on do
       fill_form(
-        email: settings.def_test_user,
-        password: settings.def_test_pass
+        email: settings.app_test_user,
+        password: settings.app_test_pass
       )
       submit_form
     end

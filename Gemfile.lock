@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: a82415465af3edacc4828bb31280c4fc6b3c35b7
+  revision: 71e9687413fae66593f33d296db56f1fabbdaad7
   branch: v2.0
   specs:
     howitzer (1.1.0)
@@ -14,12 +14,22 @@ GIT
       selenium-webdriver
       sexy_settings
 
+GIT
+  remote: git://github.com/teampoltergeist/poltergeist.git
+  revision: ae51ce7f9c24d3977d8f6d14add84cfac528c2b0
+  branch: master
+  specs:
+    poltergeist (1.10.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.0.0)
-      activesupport (= 5.0.0)
-    activesupport (5.0.0)
+    activemodel (5.0.0.1)
+      activesupport (= 5.0.0.1)
+    activesupport (5.0.0.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
@@ -74,10 +84,6 @@ GEM
     parser (2.3.1.2)
       ast (~> 2.2)
     pkg-config (1.1.7)
-    poltergeist (1.10.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -144,7 +150,7 @@ DEPENDENCIES
   factory_girl
   her
   howitzer!
-  poltergeist
+  poltergeist!
   pry
   pry-byebug
   repeater

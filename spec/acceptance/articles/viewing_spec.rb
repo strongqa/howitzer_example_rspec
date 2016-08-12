@@ -5,7 +5,7 @@ feature 'Article Viewing' do
     @article = create(:article)
     @comment = @article.comments.create(
       body: 'Some comment',
-      user_id: User.where(email: settings.def_test_user).all.first.id
+      user_id: User.where(email: settings.app_test_user).all.first.id
     )
     log_in_as_admin
     ArticlePage.open(id: @article.id)
@@ -17,7 +17,7 @@ feature 'Article Viewing' do
     ArticlePage.on do
       expect(text).to include(article.title)
       expect(text).to include(article.text)
-      expect(text).to include(settings.def_test_user)
+      expect(text).to include(settings.app_test_user)
       expect(text).to include(comment.body)
       is_expected.to have_comment_form_element
       is_expected.to have_comment_field_element

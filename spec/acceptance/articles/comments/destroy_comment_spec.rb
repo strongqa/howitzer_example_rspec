@@ -5,7 +5,7 @@ feature 'Destroy comment' do
     @article = create(:article)
     @comment = @article.comments.create(
       body: 'Some comment',
-      user_id: User.where(email: settings.def_test_user).all.first.id
+      user_id: User.where(email: settings.app_test_user).all.first.id
     )
     log_in_as_admin
     ArticlePage.open(id: @article.id)
