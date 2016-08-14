@@ -7,13 +7,13 @@ class JSONParser < Faraday::Response::Middleware
     return { data: json } if !json.is_a?(Hash) || json[:errors].blank?
     { data: json, errors: parse_errors_in_rails5_style(json) }
   rescue MultiJson::ParseError => exception
-    { errors: { base: [ error: exception.message ] } }
+    { errors: { base: [error: exception.message] } }
   end
 
   private
 
   def parse_errors_in_rails5_style(json)
-    json.fetch(:errors, {}).transform_values { |messages| messages.map {|msg|{ error: msg } } }
+    json.fetch(:errors, {}).transform_values { |messages| messages.map { |msg| { error: msg } } }
   end
 end
 
