@@ -1,7 +1,7 @@
 Howitzer Example Rspec
 =======================
 
-[![Build Status](https://travis-ci.org/strongqa/howitzer_example_rspec.svg?branch=maste)][travis]
+[![Build Status](https://travis-ci.org/strongqa/howitzer_example_rspec.svg?branch=master)][travis]
 [![Dependency Status](https://gemnasium.com/strongqa/howitzer_example_rspec.png)][gemnasium]
 
 [travis]: https://travis-ci.org/strongqa/howitzer_example_rspec
