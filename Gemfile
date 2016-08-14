@@ -11,7 +11,8 @@ gem 'howitzer', github: 'strongqa/howitzer', branch: 'v2.0'
 gem 'poltergeist', github: 'teampoltergeist/poltergeist', branch: :master
 gem 'rest-client'
 gem 'repeater'
-gem 'her'
+gem 'spyke'
+gem 'multi_json'
 gem 'factory_girl'
 
 gem 'rspec', '~>3.2'

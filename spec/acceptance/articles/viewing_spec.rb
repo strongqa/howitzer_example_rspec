@@ -3,10 +3,7 @@ require 'spec_helper'
 feature 'Article Viewing' do
   background 'Create article, comment' do
     @article = create(:article)
-    @comment = @article.comments.create(
-      body: 'Some comment',
-      user_id: User.where(email: Howitzer.app_test_user).all.first.id
-    )
+    @comment = create(:comment, article: @article, user: create(:user, :default))
     log_in_as_admin
     ArticlePage.open(id: @article.id)
   end
