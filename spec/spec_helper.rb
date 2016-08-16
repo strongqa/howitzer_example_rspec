@@ -6,12 +6,16 @@ require_relative '../config/capybara'
 
 Dir[File.join(__dir__, 'support', '**', '*.rb')].each { |f| require f }
 
+Capybara::Screenshot.register_driver(:phantomjs) do |driver, path|
+  driver.browser.save_screenshot path
+end
 Capybara::Screenshot.append_timestamp = false
 Capybara::Screenshot.register_filename_prefix_formatter(:rspec) do |example|
   "#{SecureRandom.random_number(1_000_000)}-"  \
                "#{example.description.tr(' ', '-').gsub(%r{^.*\/spec\/}, '').split('->').last.downcase}"
 end
 Capybara.save_path = 'log/screenshots'
+
 # Keep only the screenshots generated from the last failing test suite
 Capybara::Screenshot.prune_strategy = :keep_last_run
 
