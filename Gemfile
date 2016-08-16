@@ -20,3 +20,5 @@ gem 'rspec', '~>3.2'
 gem 'rubocop'
 gem 'pry'
 gem 'pry-byebug'
+
+gem 'capybara-screenshot'
