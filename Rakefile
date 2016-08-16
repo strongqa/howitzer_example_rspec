@@ -14,5 +14,5 @@ if Howitzer.required_clean_logs
   Rake::Task[:clean].invoke
 end
 
-Dir['tasks/**/*.rake'].each { |rake| load rake }
+Dir['./tasks/**/*.rake'].each { |rake| load rake }
 ENV['RAKE_TASK'] = ARGV[0] if /^features/ === ARGV[0]

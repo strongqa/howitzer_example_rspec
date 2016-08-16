@@ -1,23 +1,9 @@
-require 'rspec'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
-require_relative '../boot'
+require_relative '../config/boot'
 require_relative '../config/capybara'
 
-Dir[File.join(__dir__, 'support', '**', '*.rb')].each { |f| require f }
-
-Capybara::Screenshot.register_driver(:phantomjs) do |driver, path|
-  driver.browser.save_screenshot path
-end
-Capybara::Screenshot.append_timestamp = false
-Capybara::Screenshot.register_filename_prefix_formatter(:rspec) do |example|
-  "#{SecureRandom.random_number(1_000_000)}-"  \
-               "#{example.description.tr(' ', '-').gsub(%r{^.*\/spec\/}, '').split('->').last.downcase}"
-end
-Capybara.save_path = 'log/screenshots'
-
-# Keep only the screenshots generated from the last failing test suite
-Capybara::Screenshot.prune_strategy = :keep_last_run
+Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 RSpec.configure do |config|
   Howitzer::Log.settings_as_formatted_text

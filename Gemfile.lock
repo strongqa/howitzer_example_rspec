@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: c1ebb7f973cb8b6a7059291db78ea0b107df7c61
-  branch: v2.0
+  revision: f834362aa4edb0044c37a241985f5cf16b21dab6
+  branch: requires
   specs:
     howitzer (1.1.0)
       activesupport (~> 5.0)
