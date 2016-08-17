@@ -11,7 +11,9 @@ env:
   matrix:
     - SEXY_SETTINGS=driver=phantomjs
 
-script: "./scripts/run-tests.sh"
+script:
+  - "./scripts/run-tests.sh"
+  - echo "____START____" && git ls-files -o | tr \"\\n\" \":\" && echo "\n____END____" 
 
 addons:
   artifacts:
