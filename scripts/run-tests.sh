@@ -1,4 +1,4 @@
 #!/bin/bash
 set -ev
-bundle exec rake rubocop features:smoke
+bundle exec rake features:smoke
 shopt -s nocasematch;
