@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 feature 'Sign Up' do
-  scenario 'Visitor can open sign up page via menu from home page', smoke: true do
+  scenario 'Visitor can open sign up page via menu from home page', bvt: true do
     HomePage.open
     HomePage.on { main_menu_section.choose_menu('Sign up') }
     expect(SignUpPage).to be_displayed
   end
 
-  scenario 'Visitor can open sign up page via menu from login page', smoke: true do
+  scenario 'Visitor can open sign up page via menu from login page', bvt: true do
     LoginPage.open
     LoginPage.on { main_menu_section.choose_menu('Sign up') }
     expect(SignUpPage).to be_displayed
