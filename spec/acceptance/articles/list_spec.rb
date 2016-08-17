@@ -8,7 +8,7 @@ feature 'Articles list' do
     log_in_as(user)
   end
 
-  scenario 'User view articles list', smoke: true do
+  scenario 'User view articles list', bvt: true do
     article1 = @article1
     article2 = @article2
     ArticleListPage.open
