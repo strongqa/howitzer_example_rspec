@@ -1,6 +1,15 @@
 require 'rspec/core/rake_task'
+
+html_log_file = [
+  'rspec',
+  Howitzer.driver,
+  ENV['RAKE_TASK'],
+  ENV['TRAVIS_BUILD_NUMBER'],
+  Howitzer.html_log
+].reject(&:blank?).join('_')
+  
 RSPEC_OPTS = [
-  "--format html --out ./#{Howitzer.log_dir}/#{Howitzer.html_log}",
+  "--format html --out ./#{Howitzer.log_dir}/#{html_log_file}",
   '--format documentation',
   '--color'
 ].join(' ').freeze
