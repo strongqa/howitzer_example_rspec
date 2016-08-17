@@ -7,7 +7,6 @@ env:
     - ARTIFACTS_DEBUG=1
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/"
     - ARTIFACTS_REGION="eu-west-1"
-    - ARTIFACTS_S3_REGION="eu-west-1"
 
   matrix:
     - SEXY_SETTINGS=driver=phantomjs
