@@ -6,6 +6,8 @@ env:
   global:
     - ARTIFACTS_DEBUG=1
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/"
+    - ARTIFACTS_REGION="eu-west-1"
+    - ARTIFACTS_S3_REGION="eu-west-1"
 
   matrix:
     - SEXY_SETTINGS=driver=phantomjs
@@ -16,7 +18,8 @@ script:
 
 addons:
   artifacts:
-    s3_region: "us-west-2"
+    s3_region: "eu-west-1"
+    region: "eu-west-1"
     key:
       secure: "gdQTTFauwapAwLlAm6TqkbRtKWi8HXH/h/oWoElbTnOMXGOv0+KWWRh3CA85p4Qbw/7UOl/1kHSWnlu5EHEUjsOgIoArffFHAqf6/PGgQHA800O3I83sTqWKOINs0i9v8XF0Rhj9HVmjIALVsMMGztQj+P+5Pbtzyzo1CJAYqyw4hNd8z+bU3qdLMXxY1UW/xu3lFjnT36zkaak9AhnK5d5AnQUiL5hONsyntIZ9AxohS1Q8ckHln/IWsbDHeUw9wsB0AOBYncO5u3ZNhvzHdjaHIG7XDKJ3fsz55xz2cwrTNfbWYU4/fcfpeYCVE6MC4+lfZ+DmrBYlieGsYPDD/ef9AY6jV+kJtwzZ+idD6ZAxMjtZFdjf2Ya0RTaE2nFANuIpOORquAJra8csAtzVlYhp0pOTwR0YIfIFye+KSqOCzSn4V1lG+Yc4NPUn3ToO426ey9f0hz8ApNRxmIUiVq9oN6qb5gHCpLi2GWCOrJl9G5bPRHxXpLffYDUX/i15My0s6GH0UVXLaAQmw94qSkfUyBJFsg4ug5p8IHB23E6YD2N675fgvfPidn0WFJlYo/hqjZTqoWq3FoBdRsUoQWCV9fnA2Kb6Ilnw+rDQ4CJ1CLq7KjiP93rnps8V+v/hGx4hvIUC+Z8Y/u9HvHlbxLs1CtlprVPnwF1eJZncZUI="
     secret:
