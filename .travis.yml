@@ -4,7 +4,6 @@ rvm:
 
 env:
   global:
-    - ARTIFACTS_PATHS="./log"
     - ARTIFACTS_DEBUG=1
     - ARTIFACTS_REGION=us-west-1
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/"
