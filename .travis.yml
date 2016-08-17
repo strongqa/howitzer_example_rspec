@@ -4,9 +4,9 @@ rvm:
 
 env:
   global:
-    - ARTIFACTS_DEBUG=1
-    - ARTIFACTS_REGION=us-west-1
-    - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/"
+    - ARTIFACTS_DEBUG=0
+    - ARTIFACTS_REGION="eu-west-1"
+    - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
 
   matrix:
     - SEXY_SETTINGS=driver=phantomjs
@@ -24,3 +24,5 @@ addons:
     secret:
       secure: "YRgTCXFnt0LvpzOKB5TnZMsWLrZiu0QbKuR1op9wVQuWzKXsZMuSS6hKFJkDPXMSoKvgKREEeVRSZSjte2jJ+dpyCYCns1aWcYRYuKNntfkyZFTUBYfbinHhbZKTkYNPPsWFEoER111Wpdgn//eT1YWn1VhmFdp1exUANwM8A5v1U6iBcnOzDhYC3Jsr+2/SfiPyM1lL36bllafph00sTrnos8TivT/3XLXcjMlzHjJSQnZG4xQY2UoA4EDNSG0otM3nmPRpYrJfCj4A+yGkfNe7Qq8K3hvAY9x6KHmSb/KqXvrNga1xcvk0aQ7fIkoZukVFKRygrCp9YICf2R2dg7vMoE/2Twsto+s9R456NLiC6ib9TiOr41gPj9TqPW04BW3iynGjcLXw6A1HXMdr4XbHkprRBWwdJp0oxzfotLYTyb5pb6mT/41GDMFgMWf/La7gHg24lT/TaI80nulllz9pIpDnBIObNw4Vrd24HPThLDgJQzuD63YVGQGPzGOe4d2hB1a8SKqZiHBgBHbNQijFCxm/yJrr9LlACBG3y41NLUN28gR3LJYhgJPu5DT7Sg4/gWmnWJIGE4m1wJ3SWngVAVlxUr6OGN26k9PnmlThccJLydl3R/kOUXDMm3nQKyjMCI68AF49BrbC6GqFB4EuEDLeWrMwbdvpdN0/B/Q="
     bucket: howitzer-example-travis
+    paths:
+      - $(find log -type f | tr "\n" ":")
