@@ -5,15 +5,14 @@ rvm:
 env:
   global:
     - ARTIFACTS_DEBUG=1
-    - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/"
     - ARTIFACTS_REGION="eu-west-1"
+    - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
 
   matrix:
     - SEXY_SETTINGS=driver=phantomjs
 
 script:
   - "./scripts/run-tests.sh"
-  - echo "____START____" && find log -type f | tr "\n" ":" && echo "\n____END____"
 
 addons:
   artifacts:
