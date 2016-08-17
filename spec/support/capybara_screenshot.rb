@@ -18,7 +18,7 @@ module Capybara
 
         def build_path(relative_path)
           if ENV['CI'] == 'true'
-            File.expand_path(File.join(ENV['CI_ARTIFACTS_PATH'], relative_path))
+            File.join(ENV['CI_ARTIFACTS_PATH'], relative_path)
           else
             'file://' + File.expand_path(File.join(__dir__, '..', '..', relative_path))
           end
