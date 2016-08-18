@@ -11,5 +11,10 @@ if Howitzer.required_clean_logs
   Rake::Task[:clean].invoke
 end
 
-ENV['RAKE_TASK'] = ARGV[0] if /^features/ === ARGV[0]
+module Howitzer
+  class << self
+    attr_accessor :current_rake_task
+  end
+end
+
 Dir['./tasks/**/*.rake'].each { |rake| load rake }
