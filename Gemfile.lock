@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: f834362aa4edb0044c37a241985f5cf16b21dab6
-  branch: requires
+  revision: ee8ff6416b552d7b573e49eb91e3bdbceefa4cee
+  branch: master
   specs:
-    howitzer (1.1.0)
+    howitzer (2.0.0)
       activesupport (~> 5.0)
       capybara (>= 2.1, < 3.0)
       gli
@@ -38,7 +38,7 @@ GEM
     ast (2.3.0)
     backports (3.6.8)
     byebug (9.0.5)
-    capybara (2.7.1)
+    capybara (2.8.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -77,7 +77,7 @@ GEM
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
-    json (1.8.3)
+    json (2.0.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     log4r (1.1.10)
