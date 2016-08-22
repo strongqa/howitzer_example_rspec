@@ -5,7 +5,7 @@ feature 'Home' do
     ArticleListPage.open.add_new_article
   end
 
-  scenario 'visitor can see home page of web application', smoke: true do
+  scenario 'visitor can see home page of web application' do
     article = build(:article)
     NewArticlePage.on do
       fill_form(title: article.title, text: article.text)

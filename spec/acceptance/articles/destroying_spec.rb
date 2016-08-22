@@ -7,7 +7,7 @@ feature 'Article destroying' do
     ArticleListPage.open
   end
 
-  scenario 'User can remove article with confirmation action' do
+  scenario 'User can remove article with confirmation action', smoke: true do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, true)

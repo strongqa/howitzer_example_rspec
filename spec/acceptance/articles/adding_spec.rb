@@ -7,7 +7,7 @@ feature 'Article adding' do
     ArticleListPage.on { add_new_article }
   end
 
-  scenario 'User can add article with correct data' do
+  scenario 'User can add article with correct data', smoke: true do
     article = build(:article)
     NewArticlePage.on do
       fill_form(title: article.title, text: article.text)
