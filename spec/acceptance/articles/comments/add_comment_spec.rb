@@ -9,7 +9,7 @@ feature 'Adding Comment' do
     ArticlePage.open(id: article.id)
   end
 
-  scenario 'User can add comment with valid comment body' do
+  scenario 'User can add comment with valid comment body', smoke: true do
     comment = @comment
     ArticlePage.on do
       fill_comment_form(body: comment.body)
@@ -18,7 +18,7 @@ feature 'Adding Comment' do
     end
   end
 
-  scenario 'User can not add comment with blank comment body', p1: true do
+  scenario 'User can not add comment with blank comment body', smoke: true do
     ArticlePage.on do
       fill_comment_form(body: nil)
       submit_form

@@ -19,7 +19,7 @@ feature 'Article adding' do
     end
   end
 
-  scenario 'User can not add article with blank field', p1: true do
+  scenario 'User can not add article with blank field', smoke: true do
     NewArticlePage.on do
       fill_form
       submit_form
@@ -30,7 +30,7 @@ feature 'Article adding' do
     end
   end
 
-  scenario 'User can not add article with title is too short', p1: true do
+  scenario 'User can not add article with title is too short', smoke: true do
     article = build(:article)
     NewArticlePage.on do
       fill_form(title: '1234', text: article.text)

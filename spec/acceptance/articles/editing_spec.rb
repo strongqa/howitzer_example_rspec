@@ -7,7 +7,7 @@ feature 'Article Editing' do
     ArticlePage.open(id: article.id)
   end
 
-  scenario 'User can edit article with correct credentials' do
+  scenario 'User can edit article with correct credentials', smoke: true do
     article1 = build(:article)
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
@@ -20,7 +20,7 @@ feature 'Article Editing' do
     end
   end
 
-  scenario 'User can not edit article with blank title', p1: true do
+  scenario 'User can not edit article with blank title', smoke: true do
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '', text: '')
@@ -32,7 +32,7 @@ feature 'Article Editing' do
     end
   end
 
-  scenario 'User can not edit article with title is too short', p1: true do
+  scenario 'User can not edit article with title is too short', smoke: true do
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '1234', text: '')
