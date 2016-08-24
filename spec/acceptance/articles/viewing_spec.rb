@@ -24,7 +24,7 @@ feature 'Article Viewing' do
     end
   end
 
-  scenario 'Admin can be redirected from article page back to article list', smoke: true do
+  scenario 'Admin can be redirected from article page back to article list' do
     ArticlePage.on { back_to_article_list }
     expect(ArticleListPage).to be_displayed
   end

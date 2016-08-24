@@ -18,7 +18,7 @@ feature 'Adding Comment' do
     end
   end
 
-  scenario 'User can not add comment with blank comment body', smoke: true do
+  scenario 'User can not add comment with blank comment body' do
     ArticlePage.on do
       fill_comment_form(body: nil)
       submit_form

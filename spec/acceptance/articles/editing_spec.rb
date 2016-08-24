@@ -20,7 +20,7 @@ feature 'Article Editing' do
     end
   end
 
-  scenario 'User can not edit article with blank title', smoke: true do
+  scenario 'User can not edit article with blank title' do
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '', text: '')
@@ -32,7 +32,7 @@ feature 'Article Editing' do
     end
   end
 
-  scenario 'User can not edit article with title is too short', smoke: true do
+  scenario 'User can not edit article with title is too short' do
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '1234', text: '')
