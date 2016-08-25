@@ -48,18 +48,6 @@ module SignUpHelper
     expect(HomePage).to be_displayed
   end
 
-  def log_in_as_admin
-    LoginPage.open
-    LoginPage.on do
-      fill_form(
-        email: Howitzer.app_test_user,
-        password: Howitzer.app_test_pass
-      )
-      submit_form
-    end
-    expect(HomePage).to be_authenticated
-    expect(HomePage).to be_displayed
-  end
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
 end
