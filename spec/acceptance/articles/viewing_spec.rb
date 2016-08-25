@@ -4,7 +4,8 @@ feature 'Article Viewing' do
   background 'Create article, comment' do
     @article = create(:article)
     @comment = create(:comment, article: @article, user: create(:user, :default))
-    log_in_as_admin
+    user = create(:user, :admin)
+    log_in_as(user)
     ArticlePage.open(id: @article.id)
   end
 

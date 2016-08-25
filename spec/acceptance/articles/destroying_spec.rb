@@ -2,7 +2,8 @@ require 'spec_helper'
 
 feature 'Article destroying' do
   before(:each) do
-    log_in_as_admin
+    user = create(:user, :admin)
+    log_in_as(user)
     @article = create(:article)
     ArticleListPage.open
   end
