@@ -2,8 +2,7 @@ require 'spec_helper'
 
 feature 'Article adding' do
   before(:each) do
-    user = create(:user, :admin)
-    log_in_as(user)
+    log_in_as(create(:user, :admin))
     ArticleListPage.open
     ArticleListPage.on { add_new_article }
   end

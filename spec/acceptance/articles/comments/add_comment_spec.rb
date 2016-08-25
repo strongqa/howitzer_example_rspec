@@ -4,8 +4,7 @@ feature 'Adding Comment' do
   background 'Create article, user, comment' do
     article = create(:article)
     @comment = build(:comment)
-    user = create(:user, :admin)
-    log_in_as(user)
+    log_in_as(create(:user, :admin))
     ArticlePage.open(id: article.id)
   end
 

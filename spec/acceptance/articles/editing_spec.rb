@@ -2,8 +2,7 @@ require 'spec_helper'
 
 feature 'Article Editing' do
   background 'log in as admin' do
-    user = create(:user, :admin)
-    log_in_as(user)
+    log_in_as(create(:user, :admin))
     article = create(:article)
     ArticlePage.open(id: article.id)
   end
