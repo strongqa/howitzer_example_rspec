@@ -2,12 +2,12 @@ require 'spec_helper'
 
 feature 'Article Editing' do
   background 'log in as admin' do
-    log_in_as_admin
+    log_in_as(create(:user, :admin))
     article = create(:article)
     ArticlePage.open(id: article.id)
   end
 
-  scenario 'User can edit article with correct credentials' do
+  scenario 'User can edit article with correct credentials', smoke: true do
     article1 = build(:article)
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
@@ -20,7 +20,7 @@ feature 'Article Editing' do
     end
   end
 
-  scenario 'User can not edit article with blank title', p1: true do
+  scenario 'User can not edit article with blank title' do
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '', text: '')
@@ -32,7 +32,7 @@ feature 'Article Editing' do
     end
   end
 
-  scenario 'User can not edit article with title is too short', p1: true do
+  scenario 'User can not edit article with title is too short' do
     ArticlePage.on { click_article_button('Edit') }
     EditArticlePage.on do
       fill_form(title: '1234', text: '')

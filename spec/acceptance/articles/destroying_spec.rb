@@ -2,12 +2,12 @@ require 'spec_helper'
 
 feature 'Article destroying' do
   before(:each) do
-    log_in_as_admin
+    log_in_as(create(:user, :admin))
     @article = create(:article)
     ArticleListPage.open
   end
 
-  scenario 'User can remove article with confirmation action' do
+  scenario 'User can remove article with confirmation action', smoke: true do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, true)

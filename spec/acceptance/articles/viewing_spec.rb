@@ -4,11 +4,11 @@ feature 'Article Viewing' do
   background 'Create article, comment' do
     @article = create(:article)
     @comment = create(:comment, article: @article, user: create(:user, :default))
-    log_in_as_admin
+    log_in_as(create(:user, :admin))
     ArticlePage.open(id: @article.id)
   end
 
-  scenario 'Admin is viewing article page' do
+  scenario 'Admin is viewing article page', smoke: true do
     article = @article
     comment = @comment
     ArticlePage.on do
@@ -24,7 +24,7 @@ feature 'Article Viewing' do
     end
   end
 
-  scenario 'Admin can be redirected from article page back to article list', p1: true do
+  scenario 'Admin can be redirected from article page back to article list' do
     ArticlePage.on { back_to_article_list }
     expect(ArticleListPage).to be_displayed
   end
