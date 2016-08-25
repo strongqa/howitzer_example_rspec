@@ -1,7 +1,7 @@
 require 'spec_helper'
 feature 'Home' do
   background 'creating article' do
-    log_in_as_admin
+    log_in_as(create(:user, :admin))
     ArticleListPage.open.add_new_article
   end
 
