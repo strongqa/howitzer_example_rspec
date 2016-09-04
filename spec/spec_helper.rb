@@ -1,4 +1,3 @@
-require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require_relative '../config/boot'
 require_relative '../config/capybara'
@@ -12,14 +11,13 @@ RSpec.configure do |config|
   Howitzer::Cache.store(:cloud, :status, true)
 
   config.include FactoryGirl::Syntax::Methods
-  config.include Capybara::RSpecMatchers
 
   config.disable_monkey_patching = true
   config.color = true
 
   config.before(:each) do
     scenario_name =
-      if RSpec.current_example.description.empty?
+      if RSpec.current_example.description.blank?
         RSpec.current_example.metadata[:full_description]
       else
         RSpec.current_example.description
@@ -38,6 +36,8 @@ RSpec.configure do |config|
       Howitzer::Log.info 'IE reset session'
       page.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
     end
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
   end
 
   config.after(:suite) do
