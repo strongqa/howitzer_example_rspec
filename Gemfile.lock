@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: git://github.com/teampoltergeist/poltergeist.git
-  revision: ae51ce7f9c24d3977d8f6d14add84cfac528c2b0
+  revision: cef0840afe6079aa83021a441d9e2734cc28e6de
   branch: master
   specs:
     poltergeist (1.10.0)
@@ -45,7 +45,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-screenshot (1.0.13)
+    capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
     childprocess (0.5.9)
@@ -169,7 +169,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicode-display_width (1.1.0)
+    unicode-display_width (1.1.1)
     uri_template (0.7.0)
     websocket (1.2.3)
     websocket-driver (0.6.4)
@@ -197,4 +197,4 @@ DEPENDENCIES
   travis
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
