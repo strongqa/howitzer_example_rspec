@@ -14,7 +14,7 @@ module PasswordResettingHelper
     end
     ResetPasswordConfirmationEmail
       .find_by_recipient(email)
-      .confirm_my_account
+      .reset_password
   end
   # rubocop:enable Metrics/MethodLength
 end
