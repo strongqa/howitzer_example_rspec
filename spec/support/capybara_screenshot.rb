@@ -30,7 +30,7 @@ module Capybara
       # Bug https://github.com/mattheworiordan/capybara-screenshot/issues/164
       def save_html
         path = html_path
-        clear_save_and_open_page_path do
+        clear_save_path do
           if Capybara::VERSION.match(/^\d+/)[0] == '1'
             capybara.save_page(page.body, path.to_s)
           else
