@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: dccaa63b0667209e80128d2e9aac0548047a7ef3
+  revision: db9e35bcb084b7bc33804fa949a5fdd0fa660587
   branch: master
   specs:
     howitzer (2.0.1)
@@ -12,7 +12,7 @@ GIT
       rake
       rspec (~> 3.2)
       rspec-wait
-      selenium-webdriver (< 3)
+      selenium-webdriver (< 4.0)
       sexy_settings
 
 GIT
@@ -141,7 +141,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
-    selenium-webdriver (2.53.4)
+    selenium-webdriver (3.3.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
