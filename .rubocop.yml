@@ -2,6 +2,7 @@
 # To see all cops used see here: https://github.com/bbatsov/rubocop/blob/master/config/enabled.yml
 
 AllCops:
+  DisplayCopNames: true
   TargetRubyVersion: 2.3
   Include:
       - Rakefile
@@ -29,4 +30,9 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Metrics/ModuleLength:
-  Max: 150  
+  Max: 150
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'
+    - '**/*spec_helper.rb'

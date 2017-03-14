@@ -8,17 +8,17 @@ source 'https://rubygems.org'
 gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'master'
 # Uncomment it if you are going to use 'poltergeist' driver. PhantomJS should be installed.
 # See https://github.com/jnicklas/capybara#poltergeist
-gem 'poltergeist', git: 'https://github.com/teampoltergeist/poltergeist.git', branch: :master
-gem 'rest-client'
-gem 'repeater'
-gem 'spyke'
-gem 'multi_json'
-gem 'factory_girl'
 gem 'capybara-screenshot'
+gem 'factory_girl'
+gem 'multi_json'
+gem 'poltergeist', git: 'https://github.com/teampoltergeist/poltergeist.git', branch: :master
+gem 'repeater'
+gem 'rest-client'
+gem 'spyke'
 
 gem 'rspec', '~>3.2'
 
-gem 'rubocop'
 gem 'pry'
 gem 'pry-byebug'
+gem 'rubocop'
 gem 'travis'
