@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: dc60d4e895c1bc98ae9312cef501839c2352681a
+  revision: ece8e23d7761bfce364086d3db0a5a8c5eb6ce68
   branch: master
   specs:
-    howitzer (2.0.1)
+    howitzer (2.0.2)
       activesupport (~> 5.0)
       capybara (>= 2.1, < 3.0)
       gli
