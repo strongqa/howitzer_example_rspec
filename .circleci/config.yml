@@ -2,7 +2,7 @@ version: 2
 
 jobs:
     build:
-      working_directory: ~/howitzer_example_cucumber
+      working_directory: ~/howitzer_example
       docker:
         - image: circleci/ruby:2.4-browsers
       steps:
