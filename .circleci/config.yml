@@ -1,0 +1,12 @@
+version: 2
+
+jobs:
+    build:
+      working_directory: ~/howitzer_example
+      docker:
+        - image: circleci/ruby:2.4-browsers
+      steps:
+        - checkout
+        - run: git submodule update --init
+        - run: bundle install
+        - run: bundle exec rake features:smoke
