@@ -8,5 +8,5 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
-        - run: bundle install
+        - run: bundle install --without webkit
         - run: bundle exec rake features:smoke
