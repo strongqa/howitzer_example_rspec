@@ -2,12 +2,9 @@
 set -ev
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
-    wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
+    wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver
-    export DISPLAY=:99.0
-    sh -e /etc/init.d/xvfb start &
-    sleep 3
 fi
 if [[ "$SEXY_SETTINGS" =~ .*webkit.* ]]
 then

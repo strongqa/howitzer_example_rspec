@@ -1,12 +1,14 @@
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: dc9557eed19efecf69ca2fce9ddd132db72a93ee
+  revision: bdd02cc85b6514f55cbbc9fed046b16336e04366
   branch: master
   specs:
     howitzer (2.0.3)
       activesupport (~> 5.0)
       capybara (>= 2.1, < 3.0)
+      colorize
       gli
+      gmail
       launchy
       log4r (~> 1.1.10)
       rake
@@ -52,17 +54,18 @@ GEM
     capybara-webkit (1.14.0)
       capybara (>= 2.3.0, < 2.14.0)
       json
-    childprocess (0.7.1)
+    childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
     coderay (1.1.1)
+    colorize (0.8.1)
     concurrent-ruby (1.0.5)
     diff-lcs (1.3)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     ethon (0.10.1)
       ffi (>= 1.3.0)
-    factory_girl (4.8.0)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
@@ -76,28 +79,38 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (~> 2.9)
       net-http-pipeline
-    gli (2.16.0)
+    gli (2.17.0)
+    gmail (0.6.0)
+      gmail_xoauth (>= 0.3.0)
+      mail (>= 2.2.1)
+    gmail_xoauth (0.4.2)
+      oauth (>= 0.3.6)
     highline (1.7.8)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (0.8.4)
+    i18n (0.9.1)
+      concurrent-ruby (~> 1.0)
     json (2.0.3)
     launchy (2.4.3)
       addressable (~> 2.3)
     log4r (1.1.10)
+    mail (2.7.0)
+      mini_mime (>= 0.1.1)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    mini_mime (1.0.0)
+    mini_portile2 (2.3.0)
+    minitest (5.10.3)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     net-http-persistent (2.9.4)
     net-http-pipeline (1.0.1)
     netrc (0.11.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
+    oauth (0.5.3)
     parallel (1.11.2)
     parser (2.4.0.0)
       ast (~> 2.2)
@@ -113,29 +126,29 @@ GEM
       json
       websocket (~> 1.0)
     rack (2.0.3)
-    rack-test (0.6.3)
-      rack (>= 1.0)
+    rack-test (0.7.0)
+      rack (>= 1.0, < 3)
     rainbow (2.2.2)
       rake
-    rake (12.0.0)
+    rake (12.3.0)
     repeater (0.0.1)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspec (3.6.0)
-      rspec-core (~> 3.6.0)
-      rspec-expectations (~> 3.6.0)
-      rspec-mocks (~> 3.6.0)
-    rspec-core (3.6.0)
-      rspec-support (~> 3.6.0)
-    rspec-expectations (3.6.0)
+    rspec (3.7.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+    rspec-core (3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.6.0)
-    rspec-mocks (3.6.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.6.0)
-    rspec-support (3.6.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.0)
     rspec-wait (0.0.9)
       rspec (>= 3, < 4)
     rubocop (0.49.1)
@@ -147,7 +160,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
-    selenium-webdriver (3.4.3)
+    selenium-webdriver (3.7.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
     sexy_settings (0.1.0)
@@ -170,7 +183,7 @@ GEM
       typhoeus (~> 0.6, >= 0.6.8)
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
@@ -190,7 +203,7 @@ PLATFORMS
 DEPENDENCIES
   capybara-screenshot
   capybara-webkit
-  factory_girl
+  factory_bot
   howitzer!
   multi_json
   poltergeist!
