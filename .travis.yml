@@ -4,6 +4,8 @@ sudo: required
 rvm:
   - 2.4.0
 
+install: bundle install --jobs=3 --retry=3 --with webkit
+
 env:
   global:
     - ARTIFACTS_DEBUG=0
