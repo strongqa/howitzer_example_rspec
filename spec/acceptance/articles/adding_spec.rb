@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Article adding' do
+RSpec.feature 'Article adding' do
   before(:each) do
     log_in_as(create(:user, :admin))
     ArticleListPage.open

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Sign Up' do
+RSpec.feature 'Sign Up' do
   scenario 'Visitor can open sign up page via menu from home page' do
     HomePage.open
     HomePage.on { main_menu_section.choose_menu('Sign up') }

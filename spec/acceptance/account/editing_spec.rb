@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Account Editing' do
+RSpec.feature 'Account Editing' do
   scenario 'User can edit password and name with correct credentials' do
     user1 = create(:user)
     user2 = build(:user)
