@@ -1,5 +1,5 @@
 require 'spec_helper'
-feature 'Home' do
+RSpec.feature 'Home' do
   scenario 'visitor can see home page of web application' do
     log_in_as(create(:user, :admin))
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Article destroying' do
+RSpec.feature 'Article destroying' do
   before(:each) do
     log_in_as(create(:user, :admin))
     @article = create(:article)

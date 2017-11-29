@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Article Editing' do
+RSpec.feature 'Article Editing' do
   background 'log in as admin' do
     log_in_as(create(:user, :admin))
     article = create(:article)

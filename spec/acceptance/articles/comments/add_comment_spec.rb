@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Adding Comment' do
+RSpec.feature 'Adding Comment' do
   background 'Create article, user, comment' do
     article = create(:article)
     @comment = build(:comment)

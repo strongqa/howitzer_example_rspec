@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Account cancelling' do
+RSpec.feature 'Account cancelling' do
   scenario 'User can cancel his own account if he is signed in' do
     log_in_as(create(:user))
 
