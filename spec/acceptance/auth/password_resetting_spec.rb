@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Password Resetting' do
+RSpec.feature 'Password Resetting' do
   scenario 'User can reset password with correct data' do
     user1 = create(:user)
     user2 = build(:user)

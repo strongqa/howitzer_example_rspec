@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Article Viewing' do
+RSpec.feature 'Article Viewing' do
   background 'Create article, comment' do
     @article = create(:article)
     @comment = create(:comment, article: @article, user: create(:user, :default))

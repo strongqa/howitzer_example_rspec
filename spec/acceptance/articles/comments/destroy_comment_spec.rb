@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Destroy comment' do
+RSpec.feature 'Destroy comment' do
   background 'Create article, comment' do
     @article = create(:article)
     @comment = create(:comment, article: @article, user: create(:user, :default))

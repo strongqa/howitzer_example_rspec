@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-feature 'Howitzer - Capybara screenshot integration' do
-  scenario 'Test suite can create page screenshot' do
+RSpec.feature 'Howitzer - Capybara screenshot integration' do
+  scenario 'Capybara screenshot library stores screenshot and source page in proper location' do
     HomePage.open
     HomePage.on do
       Capybara::Screenshot.screenshot_and_save_page

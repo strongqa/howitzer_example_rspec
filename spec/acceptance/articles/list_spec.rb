@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Articles list' do
+RSpec.feature 'Articles list' do
   background 'Create article and user' do
     @article1 = create(:article)
     @article2 = create(:article)

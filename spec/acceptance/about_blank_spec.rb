@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'Blank page' do
+RSpec.feature 'Blank page' do
   scenario 'Testing General Blank Page' do
     HomePage.open
     expect(HomePage).to be_displayed
