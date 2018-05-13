@@ -3,10 +3,8 @@ Howitzer Example Rspec
 
 [![Build Status](https://travis-ci.org/strongqa/howitzer_example_rspec.svg?branch=master)][travis]
 [![CircleCI](https://circleci.com/gh/strongqa/howitzer_example_rspec.svg?style=svg&circle-token=15ab6b1e7f4e9f9abc2e61b95e6a3cdc7d6655b7)](https://circleci.com/gh/strongqa/howitzer_example_rspec)
-[![Dependency Status](https://gemnasium.com/strongqa/howitzer_example_rspec.png)][gemnasium]
 
 [travis]: https://travis-ci.org/strongqa/howitzer_example_rspec
-[gemnasium]: https://gemnasium.com/strongqa/howitzer_example_rspec
 
 Howitzer example project based on Rspec for demo web application http://demoapp.strongqa.com
 
