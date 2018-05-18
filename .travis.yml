@@ -22,7 +22,6 @@ env:
     - secure: "dhaXaeTTLVOxkBfCvt/+yPlP+hOKvdWHCXE7sbDDsCIj/v5WEK724LUalMbDfJHolndnKqSN4fccjmCMIPeuioOIGt54kHmz3atq9PZuegYu6qVSuLr1ugANw3V99a6YDxZLdruL0JHHCwuTxLYLoWT//u8y4tMsbUZQokNel3mqQx3o/x7OrPKVUg0V5i8Myb8yBtV+9SKw1wQaK3U5jR4e9ze7bhINlJSUaBEe1t55KSptsEfnhwL+LY76i+tMYDrl5EcrjK/8Y6gsHZAocXJYuu5MNeHdg4ufwSafO9vm9fssWhQvs+TkHrtxDwc8qgXQT4X1UMZyeRuZFYKd8LfuaCikL3+FAx/9MmbLXv5RaLZBxlDtw5MglmDaSRGzLEfuhADi0fWfmaxHGQjEU3BTWKiFtesHO1i7eA2xwhMoj0Vakpl2rBCVp0ckZ9vxhEO8gEZulYBU6xb968DNO4d5Qvh5WOBu9F3ftu+7p5x5lbPtsa3HYtslPaCpvov6qLOroeOJBcDJ3yNmq1d4gkOgH7QlYAWVTuBSz7UY25nNL6LM+fbc2jOev1/JrQ4li3cSNx38x5jF3FNQKEJBkFibyiwGAe24zypaMafswTpMGLbOeBGx60U+nRkXPw1FfT8zwiqNI5Phttd1zHdS7J6MEMEB2tCwXlegQffVgjo=" #driver=browserstack
     - secure: "XRQ04Igl9AWAYrMxHJB93BPPAT0ZHMdFeSwMjb4LlSRujU3/Rmp3f/ZgGYonChMs137MqGcraG722DSdbQs5NFthaL3iIl997Hdke6f/41XYYnn8UiI3QU4f1h4f7umr0cDOn+ewdh/TGuKaRWCEYkmT2VAqszepcGa8wnhcoy21YxlKC/AsQOfOeCHYa/Y/yhHVSVW3lxwg8g7wZswfabhR7ITKGXJnvvrFv2+chh+pW+BDo3cs+zQod0/ETYDQvA8ZO5imgx7CsQiahK6fsOK9rWlfCcYPC6Hn4SMm4VJ3Ezlm9MUfd7vyziHei9uZHgs7hPBURwsvEHJ8Rt0rxCzmeDz9ihFDbs9d1RDfEKFtpAuZ5MGrqQPm6555VLn0RmIb5NxBf8/J+Cq/0iKAeJLKStjTGjwS9jpWE1bAhTKJCUwM7ATN9qhmKosu2uYL33ZsA4+54D8YsHZ8ucA/p/NZDXOPFh1tNzz4/9TlWL0Jl7dHoxdvaxuyoc6xHKzvLqcCvxLRLJFlePJaZzLxitSB7u4jtIlUeR4gRki54XL20lQb6mCi5JQN5lnaTX4g//KVl82N6QvmI54Zxd6jftJ+IiPDfkTId3gzFR53Sy9SUJoa3OgjPxOTJSDFp/I4lv1oIxxbBnZCBx6aN2rYlG3OoUSQtke3/6DKG+CFJm8=" #driver=crossbrowsertesting
 
-script: "./scripts/run-tests.sh"
 
 addons:
   chrome: stable
@@ -34,3 +33,5 @@ addons:
     bucket: howitzer-example-travis
     paths:
       - $(find log -type f | tr "\n" ":")
+
+script: "./scripts/run-tests.sh"
