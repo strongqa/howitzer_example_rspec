@@ -15,7 +15,7 @@ then
 fi
 bundle exec rake rubocop features:smoke
 shopt -s nocasematch;
-if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*headless_chrome|webkit.* ]]
+if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*poltergeist|headless_chrome|webkit.* ]]
 then
 	bundle exec rake features:bvt features:p1 features:p2
 fi
