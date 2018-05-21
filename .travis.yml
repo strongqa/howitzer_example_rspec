@@ -3,7 +3,16 @@ dist: trusty
 sudo: required
 rvm:
   - 2.4.0
-
+apt:
+  sources:
+    - ubuntu-sdk-team
+  packages:
+    - qt5-default
+    - libqt5webkit5-dev
+    - gstreamer1.0-plugins-base
+    - gstreamer1.0-tools
+    - gstreamer1.0-x
+    
 install: bundle install --jobs=3 --retry=3 --with webkit
 
 env:
