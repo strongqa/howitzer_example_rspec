@@ -17,16 +17,6 @@ GIT
       selenium-webdriver (>= 3.4.1, < 4.0)
       sexy_settings
 
-GIT
-  remote: https://github.com/teampoltergeist/poltergeist.git
-  revision: d3e0d8bfb2880549e17c95ecdbf3b9aa4f5e3cad
-  branch: master
-  specs:
-    poltergeist (1.18.0)
-      capybara (>= 2.1, < 4)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -117,6 +107,10 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
+    poltergeist (1.17.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -206,7 +200,7 @@ DEPENDENCIES
   factory_bot
   howitzer!
   multi_json
-  poltergeist!
+  poltergeist (= 1.17.0)
   pry
   pry-byebug
   repeater
