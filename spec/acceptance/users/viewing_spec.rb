@@ -6,7 +6,7 @@ RSpec.feature 'Viewing Users' do
     user2 = create(:user)
     log_in_as(user2)
     UsersPage.open
-    UsersPage.on { open_user(user1.email) }
-    UserViewPage.on { expect(text).to include(user1.email) }
+    UsersPage.on { open_user(user1.name) }
+    UserViewPage.on { expect(text).to include(user1.name) }
   end
 end

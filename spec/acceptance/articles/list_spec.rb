@@ -13,9 +13,9 @@ RSpec.feature 'Articles list' do
     article2 = @article2
     ArticleListPage.open
     ArticleListPage.on do
-      expect(text).to include(article1.title)
+      expect(text).to include(article1.title.upcase)
       expect(text).to include(article1.text)
-      expect(text).to include(article2.title)
+      expect(text).to include(article2.title.upcase)
       expect(text).to include(article2.text)
     end
   end

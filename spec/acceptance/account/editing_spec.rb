@@ -108,9 +108,10 @@ RSpec.feature 'Account Editing' do
       )
       submit_form
     end
+    # binding.pry
     EditAccountPage.on do
       expect(errors_section.error_message).to eql(
-        '1 error prohibited this user from being saved: Email has already been taken'
+        '1 error must be fixed Email has already been taken'
       )
     end
   end
@@ -132,7 +133,7 @@ RSpec.feature 'Account Editing' do
     end
     EditAccountPage.on do
       expect(errors_section.error_message).to eql(
-        '1 error prohibited this user from being saved: Current password is invalid'
+        '1 error must be fixed Current password is invalid'
       )
     end
   end
@@ -153,7 +154,7 @@ RSpec.feature 'Account Editing' do
     end
     EditAccountPage.on do
       expect(errors_section.error_message).to eql(
-        "1 error prohibited this user from being saved: Password confirmation doesn't match Password"
+        "1 error must be fixed Password confirmation doesn't match Password"
       )
     end
   end
@@ -174,7 +175,7 @@ RSpec.feature 'Account Editing' do
     end
     EditAccountPage.on do
       expect(errors_section.error_message).to eql(
-        '1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)'
+        '1 error must be fixed Password is too short (minimum is 8 characters)'
       )
     end
   end
