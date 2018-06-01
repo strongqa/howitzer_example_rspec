@@ -14,7 +14,6 @@ RSpec.feature 'Article Viewing' do
     ArticlePage.on do
       expect(text).to include(article.title)
       expect(text).to include(article.text)
-      # expect(text).to include(Howitzer.app_test_user)
       expect(text).to include(comment.body)
       is_expected.to have_comment_form_element
       is_expected.to have_comment_field_element
