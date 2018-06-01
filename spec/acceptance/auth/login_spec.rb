@@ -22,7 +22,6 @@ RSpec.feature 'Log In' do
                 password: nil)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
@@ -36,7 +35,6 @@ RSpec.feature 'Log In' do
                 password: user.email)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
@@ -49,7 +47,6 @@ RSpec.feature 'Log In' do
                 password: nil)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
@@ -63,7 +60,6 @@ RSpec.feature 'Log In' do
                 password: user.password)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
@@ -77,7 +73,6 @@ RSpec.feature 'Log In' do
                 password: 'test_password')
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
@@ -90,7 +85,6 @@ RSpec.feature 'Log In' do
                 password: 'test_password')
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
@@ -103,7 +97,6 @@ RSpec.feature 'Log In' do
                 password: nil)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     expect(LoginPage).to be_displayed
   end
 
@@ -116,7 +109,6 @@ RSpec.feature 'Log In' do
                 password: user.password)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('You have to confirm your account before continuing.')
     end
@@ -132,7 +124,6 @@ RSpec.feature 'Log In' do
                 password: user.password)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
