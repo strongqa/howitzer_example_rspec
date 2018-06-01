@@ -9,7 +9,6 @@ RSpec.feature 'Sign Up' do
 
   scenario 'Visitor can open sign up page via menu from login page' do
     LoginPage.open
-    # LoginPage.on { main_menu_section.choose_menu('Sign up') }
     LoginPage.on { sign_up_link_element.click }
     expect(SignUpPage).to be_displayed
   end
@@ -24,7 +23,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: user.password)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     HomePage.on do
       expect(text).to include(
         'A message with a confirmation link has been sent to your email address.' \
@@ -50,7 +48,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: nil)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     SignUpPage.on do
       expect(text).to include(
         "2 errors must be fixed Email can't be blank Password can't be blank"
@@ -68,7 +65,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: nil)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     SignUpPage.on do
       expect(text).to include("1 error must be fixed Password can't be blank")
     end
@@ -84,7 +80,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: user.password)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     SignUpPage.on do
       expect(text).to include("1 error must be fixed Email can't be blank")
     end
@@ -99,7 +94,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: nil)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     expect(SignUpPage).to be_displayed
   end
 
@@ -113,7 +107,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: '1234567')
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     SignUpPage.on do
       expect(text).to include(
         '1 error must be fixed Password is too short (minimum is 8 characters)'
@@ -131,7 +124,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: '1234567890123')
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     SignUpPage.on do
       expect(text).to include(
         "1 error must be fixed Password confirmation doesn't match Password"
@@ -148,7 +140,6 @@ RSpec.feature 'Sign Up' do
                 password_confirmation: user.password)
       submit_form
     end
-    # expect(HomePage).to be_not_authenticated
     SignUpPage.on do
       expect(text).to include('1 error must be fixed Email has already been taken')
     end
