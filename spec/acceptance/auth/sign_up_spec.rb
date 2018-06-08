@@ -9,7 +9,7 @@ RSpec.feature 'Sign Up' do
 
   scenario 'Visitor can open sign up page via menu from login page' do
     LoginPage.open
-    LoginPage.on { sign_up_link_element.click }
+    LoginPage.on { navigate_to_signup }
     expect(SignUpPage).to be_displayed
   end
 
