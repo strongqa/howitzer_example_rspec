@@ -55,7 +55,7 @@ RSpec.feature 'Account Editing' do
       submit_form
     end
     HomePage.on do
-      wait_for(flash_section.flash_message).to eql(
+      expect(flash_section.flash_message).to eql(
         'You updated your account successfully, but we need to verify your new email address.' \
         ' Please check your email and click on the confirm link to finalize confirming your new email address.'
       )
@@ -108,7 +108,6 @@ RSpec.feature 'Account Editing' do
       )
       submit_form
     end
-    # binding.pry
     EditAccountPage.on do
       expect(errors_section.error_message).to eql(
         '1 error must be fixed Email has already been taken'
