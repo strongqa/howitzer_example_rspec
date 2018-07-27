@@ -17,7 +17,6 @@ RSpec.feature 'Home' do
   scenario 'visitor can see howitzer banner' do
     HomePage.open
     HomePage.on do
-      iframe_wait
       howitzer_home_iframe do |frame|
         frame.open_quick_start
         expect(frame).to have_install_section_element(visible: true)
