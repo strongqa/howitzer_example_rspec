@@ -11,12 +11,13 @@ RSpec.feature 'Home' do
       submit_form
     end
     HomePage.open
-    HomePage.on { expect(find_form_text('Today')).to include(article.title) }
+    HomePage.on { expect(find_article_group_text(1)).to include(article.title.upcase) }
   end
 
   scenario 'visitor can see howitzer banner' do
     HomePage.open
     HomePage.on do
+      current_window.resize_to(1920, 1080)
       howitzer_home_iframe do |frame|
         frame.open_quick_start
         expect(frame).to have_install_section_element(visible: true)

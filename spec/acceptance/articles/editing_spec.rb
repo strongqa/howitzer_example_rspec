@@ -25,9 +25,8 @@ RSpec.feature 'Article Editing' do
     EditArticlePage.on do
       fill_form(title: '', text: '')
       submit_form
-      expect(errors_section.error_message).to eql(
-        '2 errors prohibited this article from being saved:' \
-        " Title can't be blank Title is too short (minimum is 5 characters)"
+      expect(article_errors_section.error_message.downcase).to eql(
+        "1 error prohibited this article from being saved: title can't be blank"
       )
     end
   end
@@ -37,8 +36,8 @@ RSpec.feature 'Article Editing' do
     EditArticlePage.on do
       fill_form(title: '1234', text: '')
       submit_form
-      expect(errors_section.error_message).to eql(
-        '1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)'
+      expect(article_errors_section.error_message.downcase).to eql(
+        '1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)'.downcase
       )
     end
   end

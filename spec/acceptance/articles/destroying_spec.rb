@@ -11,7 +11,7 @@ RSpec.feature 'Article destroying' do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, true)
-      expect(text).to_not include(article.title)
+      expect(text).to_not include(article.title.upcase)
     end
   end
 
@@ -19,7 +19,7 @@ RSpec.feature 'Article destroying' do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, false)
-      expect(text).to include(article.title)
+      expect(text).to include(article.title.upcase)
     end
   end
 end

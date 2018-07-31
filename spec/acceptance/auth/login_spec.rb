@@ -22,10 +22,11 @@ RSpec.feature 'Log In' do
                 password: nil)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login with blank email', p1: true do
@@ -36,10 +37,11 @@ RSpec.feature 'Log In' do
                 password: user.email)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login with blank email and passwnord', p1: true do
@@ -49,10 +51,11 @@ RSpec.feature 'Log In' do
                 password: nil)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login with incorrect email', p1: true do
@@ -63,10 +66,11 @@ RSpec.feature 'Log In' do
                 password: user.password)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login with incorrect password', p1: true do
@@ -77,10 +81,11 @@ RSpec.feature 'Log In' do
                 password: 'test_password')
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login with incorrect email and password', p1: true do
@@ -90,10 +95,11 @@ RSpec.feature 'Log In' do
                 password: 'test_password')
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login with incorrect email and blank password', p1: true do
@@ -103,8 +109,9 @@ RSpec.feature 'Log In' do
                 password: nil)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     expect(LoginPage).to be_displayed
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'User can not login until confirmation email is not confirmed' do
@@ -116,10 +123,11 @@ RSpec.feature 'Log In' do
                 password: user.password)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('You have to confirm your account before continuing.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 
   scenario 'Canceled user can not login' do
@@ -132,9 +140,10 @@ RSpec.feature 'Log In' do
                 password: user.password)
       submit_form
     end
-    expect(HomePage).to be_not_authenticated
     LoginPage.on do
       expect(text).to include('Invalid email or password.')
     end
+    HomePage.open
+    expect(HomePage).to be_not_authenticated
   end
 end
