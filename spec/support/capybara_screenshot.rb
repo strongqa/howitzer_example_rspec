@@ -8,6 +8,7 @@ module Capybara
 
         def output_screenshot_info(example)
           return unless (meta = example.metadata[:screenshot])
+
           output.puts(build_text("HTML screenshot: #{build_path(meta[:html])}")) if meta[:html]
           output.puts(build_text("Image screenshot: #{build_path(meta[:image])}")) if meta[:image]
         end
