@@ -7,6 +7,3 @@
 [submodule "web"]
 	path = web
 	url = https://github.com/strongqa/howitzer_example_web.git
-[submodule "config"]
-	path = config
-	url = https://github.com/strongqa/howitzer_example_config.git
