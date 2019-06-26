@@ -5,6 +5,7 @@ then
     wget https://chromedriver.storage.googleapis.com/75.0.3770.8/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver
+    sudo ln -s /usr/local/bin/chromedriver /usr/bin/chromedriver
     sleep 3
 fi
 if [[ "$SEXY_SETTINGS" =~ .*webkit.* ]]
