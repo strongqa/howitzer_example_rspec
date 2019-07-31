@@ -34,6 +34,11 @@ namespace :features do
     t.rspec_opts = "#{opts.call(t.name)} --tag smoke --tag ~wip --tag ~bug"
   end
 
+  RSpec::Core::RakeTask.new(:smoke_except, 'Run workable smoke scenarios without exceptional scenarios') do |t|
+    Howitzer.current_rake_task = t.name
+    t.rspec_opts = "#{opts.call(t.name)} --tag smoke --tag ~wip --tag ~bug --tag ~exception"
+  end
+
   RSpec::Core::RakeTask.new(:bvt, 'Run workable build verification test scenarios') do |t|
     Howitzer.current_rake_task = t.name
     t.rspec_opts = "#{opts.call(t.name)} --tag ~wip --tag ~bug --tag ~p1 --tag ~p2 --tag ~smoke"
