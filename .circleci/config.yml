@@ -12,13 +12,13 @@ jobs:
         - run: bundle exec rake features:smoke
         # Restore bundle cache
         - type: cache-restore
-          key: example-cucumber-{{ checksum "Gemfile.lock" }}
+          key: example-rspec-{{ checksum "Gemfile.lock" }}
 
         # Bundle install dependencies
         - run: bundle install --path vendor/bundle
 
         # Store bundle cache
         - type: cache-save
-          key: example-cucumber-{{ checksum "Gemfile.lock" }}
+          key: example-rspec-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
