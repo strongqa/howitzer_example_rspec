@@ -8,16 +8,15 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
-        - run: bundle exec rake features:smoke
         # Restore bundle cache
         - type: cache-restore
           key: example-rspec-{{ checksum "Gemfile.lock" }}
 
         # Bundle install dependencies
         - run: bundle install --path vendor/bundle --without webkit
-
         # Store bundle cache
         - type: cache-save
           key: example-rspec-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+        - run: bundle exec rake features:smoke
