@@ -1,0 +1,26 @@
+require 'spec_helper'
+
+RSpec.feature 'Articles filtering by category' do
+  background 'Create articles and user' do
+    @category = create(:category)
+    @article1 = create(:article, category: @category)
+    @article2 = create(:article, category: @category)
+    user = create(:user)
+    log_in_as(user)
+  end
+
+  scenario 'User view articles list', smoke: true do
+    article1 = @article1
+    article2 = @article2
+    category = @category
+    ArticleListPage.open
+    ArticleListPage.on do
+      is_expected.to have_category_item_element(category.name)
+      open_category_item(category.name)
+    end
+    CategoriesPage.on do
+      is_expected.to have_article_element(article1.title)
+      is_expected.to have_article_element(article2.title)
+    end
+  end
+end
