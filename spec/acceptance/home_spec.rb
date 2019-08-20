@@ -14,7 +14,7 @@ RSpec.feature 'Home' do
     HomePage.on { expect(find_article_group_text(1)).to include(article.title.upcase) }
   end
 
-  scenario 'visitor can see howitzer banner', exception: true, smoke: true do
+  scenario 'visitor can see howitzer banner', no_poltergeist: true, smoke: true do
     HomePage.open
     HomePage.on do
       current_window.resize_to(1920, 1080)
