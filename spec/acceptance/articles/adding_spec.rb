@@ -24,7 +24,7 @@ RSpec.feature 'Article adding' do
       fill_form
       submit_form
       expect(text.downcase).to include(
-        "2 errors prohibited this article from being saved: title can't be blank title is too short"
+        "1 error prohibited this article from being saved: title can't be blank"
       )
     end
   end
