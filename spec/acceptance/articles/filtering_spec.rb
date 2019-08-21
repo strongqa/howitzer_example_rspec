@@ -9,7 +9,7 @@ RSpec.feature 'Articles filtering by category' do
     log_in_as(user)
   end
 
-  scenario 'User view articles list', smoke: true do
+  scenario 'User can filter articles by category', smoke: true do
     article1 = @article1
     article2 = @article2
     category = @category
