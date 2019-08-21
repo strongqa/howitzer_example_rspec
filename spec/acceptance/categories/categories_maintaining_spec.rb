@@ -24,7 +24,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { is_expected.to have_category_item_element(category_new) }
   end
 
-  scenario 'admin can delete existed category', bug: true do
+  scenario 'admin can delete existed category' do
     category1 = @category1
     CategoriesListPage.open
     CategoriesListPage.on { delete_category(category1.name) }
