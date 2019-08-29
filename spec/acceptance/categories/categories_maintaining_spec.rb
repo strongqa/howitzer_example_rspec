@@ -13,6 +13,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { add_new_category }
     NewCategoryPage.on { create_category(category.name) }
     CategoriesListPage.on { is_expected.to have_category_item_element(category.name) }
+    CategoriesListPage.on { delete_category(category.name) }
   end
 
   scenario 'admin can edit existed category' do
@@ -22,6 +23,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { edit_category(category1.name) }
     EditCategoryPage.on { update_category(category_new) }
     CategoriesListPage.on { is_expected.to have_category_item_element(category_new) }
+    CategoriesListPage.on { delete_category(category_new) }
   end
 
   scenario 'admin can delete existed category' do

@@ -22,5 +22,9 @@ RSpec.feature 'Articles filtering by category' do
       is_expected.to have_article_element(article1.title)
       is_expected.to have_article_element(article2.title)
     end
+    CategoriesPage.on { main_menu_section.choose_menu('Logout') }
+    log_in_as(create(:user, :admin))
+    CategoriesListPage.open
+    CategoriesListPage.on { delete_category(category.name) }
   end
 end
