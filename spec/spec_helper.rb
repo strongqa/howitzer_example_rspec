@@ -5,6 +5,8 @@ require_relative '../config/capybara'
 Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 RSpec.configure do |config|
+  config.filter_run_excluding no_poltergeist: true if Howitzer.driver == 'poltergeist'
+
   Howitzer::Log.settings_as_formatted_text
 
   Howitzer::Cache.store(:cloud, :start_time, Time.now.utc)

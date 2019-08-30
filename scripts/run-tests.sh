@@ -5,7 +5,6 @@ then
     wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver
-    #sudo ln -s /usr/local/bin/chromedriver /usr/bin/chromedriver
     sleep 3
 fi
 if [[ "$SEXY_SETTINGS" =~ .*webkit.* ]]
@@ -13,12 +12,6 @@ then
     export DISPLAY=:99.0
     sh -e /etc/init.d/xvfb start &
     sleep 3
-fi
-if [[ "$SEXY_SETTINGS" =~ .*poltergeist.* ]]
-then
-    bundle exec rake rubocop features:smoke_except
-else
-    bundle exec rake rubocop features:smoke
 fi
 bundle exec rake rubocop features:smoke
 shopt -s nocasematch;
