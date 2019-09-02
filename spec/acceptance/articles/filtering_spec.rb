@@ -25,6 +25,13 @@ RSpec.feature 'Articles filtering by category' do
     CategoriesPage.on { main_menu_section.choose_menu('Logout') }
     log_in_as(create(:user, :admin))
     CategoriesListPage.open
-    CategoriesListPage.on { delete_category(category.name) }
+    CategoriesListPage.on do
+      delete_category(category.name)
+      if Howitzer.driver == 'webkit'
+        driver.browser.accept_js_confirms
+      else
+        Capybara.current_session.accept_alert
+      end
+    end
   end
 end
