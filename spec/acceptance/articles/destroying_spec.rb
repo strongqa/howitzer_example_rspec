@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.feature 'Article destroying' do
   before(:each) do
     log_in_as(create(:user, :admin))
-    @article = create(:article)
+    @article = create(:article, category: create(:category, :default))
     ArticleListPage.open
   end
 
