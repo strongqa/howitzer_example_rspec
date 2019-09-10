@@ -24,7 +24,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { is_expected.not_to have_category_item_element(category.name, wait: 3) }
   end
 
-  scenario 'admin can edit existed category' do
+  scenario 'admin can edit existing category' do
     category1 = @category1
     category_new = "#{@category1.name}_new"
     CategoriesListPage.open
@@ -42,7 +42,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { is_expected.not_to have_category_item_element(category_new, wait: 3) }
   end
 
-  scenario 'admin can delete existed category' do
+  scenario 'admin can delete existing category' do
     category1 = @category1
     CategoriesListPage.open
     CategoriesListPage.on do

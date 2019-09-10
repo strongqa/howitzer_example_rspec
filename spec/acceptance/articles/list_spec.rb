@@ -20,14 +20,14 @@ RSpec.feature 'Articles list' do
     end
   end
 
-  scenario 'user can find necessary articles by name in Article list', smoke: true do
+  scenario 'User can find necessary articles by name in article list', smoke: true do
     article1 = @article1
     ArticleListPage.open
     ArticleListPage.on { search_article(article1.title) }
     SearchPage.on { is_expected.to have_article_element(article1.title) }
   end
 
-  scenario 'user can see and open recently created articles in right sidebar of Article list', smoke: true do
+  scenario 'User can see and open recently created articles in right sidebar of article list', smoke: true, wip: true do
     article1 = @article1
     ArticleListPage.open
     ArticleListPage.on do
