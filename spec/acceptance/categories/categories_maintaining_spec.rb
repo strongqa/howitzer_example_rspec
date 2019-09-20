@@ -21,6 +21,7 @@ RSpec.feature 'Category maintaining' do
         Capybara.current_session.accept_alert
       end
     end
+    sleep 2
     CategoriesListPage.on { is_expected.not_to have_category_item_element(category.name, wait: 3) }
   end
 
@@ -39,6 +40,7 @@ RSpec.feature 'Category maintaining' do
         Capybara.current_session.accept_alert
       end
     end
+    sleep 2
     CategoriesListPage.on { is_expected.not_to have_category_item_element(category_new, wait: 3) }
   end
 
@@ -53,6 +55,7 @@ RSpec.feature 'Category maintaining' do
         Capybara.current_session.accept_alert
       end
     end
+    sleep 2
     CategoriesListPage.on { is_expected.not_to have_category_item_element(category1.name, wait: 3) }
   end
 end
