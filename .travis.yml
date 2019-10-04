@@ -18,6 +18,9 @@ apt:
     - gstreamer1.0-tools
     - gstreamer1.0-x
 
+before_install:
+  - sudo apt-get install jq
+
 install: bundle install --jobs=3 --retry=3 --with webkit
 
 env:

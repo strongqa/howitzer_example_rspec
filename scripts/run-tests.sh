@@ -1,5 +1,22 @@
 #!/bin/bash
 set -ev
+CUCUMBER_STATE=("started")
+TURNIP_STATE=("started")
+while [[ " ${CUCUMBER_STATE[*]} " == *"started"* ]] || [[ " ${TURNIP_STATE[*]} " == *"started"* ]]; do
+        sleep 5
+        CUCUMBER_STATE=$(curl -s -X GET \
+       -H "Content-Type: application/json" \
+       -H "Accept: application/json" \
+       -H "Travis-API-Version: 3" \
+       -H "Authorization: token ${QA_TOKEN}" \
+       https://api.travis-ci.org/repo/${CUCUMBER_SLUG}/builds | jq -r '[.builds[].state]' )
+        RSPEC_STATE=$(curl -s -X GET \
+       -H "Content-Type: application/json" \
+       -H "Accept: application/json" \
+       -H "Travis-API-Version: 3" \
+       -H "Authorization: token ${QA_TOKEN}" \
+       https://api.travis-ci.org/repo/${TURNIP_STATE}/builds | jq -r '[.builds[].state]' )
+done
 if [[ "$SEXY_SETTINGS" =~ .*headless_firefox.* ]]
 then
     wget https://github.com/mozilla/geckodriver/releases/download/v0.25.0/geckodriver-v0.25.0-linux64.tar.gz
