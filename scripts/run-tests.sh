@@ -9,13 +9,13 @@ while [[ " ${CUCUMBER_STATE[*]} " == *"started"* ]] || [[ " ${TURNIP_STATE[*]} "
        -H "Accept: application/json" \
        -H "Travis-API-Version: 3" \
        -H "Authorization: token ${QA_TOKEN}" \
-       https://api.travis-ci.org/repo/${CUCUMBER_SLUG}/builds | jq -r '[.builds[].state]' )
+       https://api.travis-ci.org/repo/${CUCUMBER_SLUG}/builds | grep -Po '"state":.*?[^\\]",'| awk -F "\"" '{print $4}' )
         RSPEC_STATE=$(curl -s -X GET \
        -H "Content-Type: application/json" \
        -H "Accept: application/json" \
        -H "Travis-API-Version: 3" \
        -H "Authorization: token ${QA_TOKEN}" \
-       https://api.travis-ci.org/repo/${TURNIP_STATE}/builds | jq -r '[.builds[].state]' )
+       https://api.travis-ci.org/repo/${TURNIP_STATE}/builds | grep -Po '"state":.*?[^\\]",'| awk -F "\"" '{print $4}' )
 done
 if [[ "$SEXY_SETTINGS" =~ .*headless_firefox.* ]]
 then
