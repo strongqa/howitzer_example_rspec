@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ev
-CUCUMBER_STATE=("started")
-TURNIP_STATE=("started")
+CUCUMBER_STATE="started"
+TURNIP_STATE="started"
 while [[ " ${CUCUMBER_STATE[*]} " == *"started"* ]] || [[ " ${TURNIP_STATE[*]} " == *"started"* ]]; do
         sleep 5
         CUCUMBER_STATE=$(curl -s -X GET \
@@ -10,7 +10,7 @@ while [[ " ${CUCUMBER_STATE[*]} " == *"started"* ]] || [[ " ${TURNIP_STATE[*]} "
        -H "Travis-API-Version: 3" \
        -H "Authorization: token ${QA_TOKEN}" \
        https://api.travis-ci.org/repo/${CUCUMBER_SLUG}/builds | grep -Po '"state":.*?[^\\]",'| awk -F "\"" '{print $4}' )
-        RSPEC_STATE=$(curl -s -X GET \
+        TURNIP_STATE=$(curl -s -X GET \
        -H "Content-Type: application/json" \
        -H "Accept: application/json" \
        -H "Travis-API-Version: 3" \
