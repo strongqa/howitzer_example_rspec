@@ -41,7 +41,7 @@ RSpec.feature 'Category maintaining' do
       end
     end
     sleep 2
-    CategoriesListPage.on { is_expected.not_to have_category_item_element(category_new, wait: 3) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(category_new, wait: 3) }
   end
 
   scenario 'admin can delete existing category' do
