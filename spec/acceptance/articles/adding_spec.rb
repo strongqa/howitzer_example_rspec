@@ -23,7 +23,7 @@ RSpec.feature 'Article adding' do
     NewArticlePage.on do
       fill_form
       submit_form
-      expect(text.downcase).to include(
+      expect(text.gsub("\n", ' ').downcase).to include(
         "1 error prohibited this article from being saved: title can't be blank"
       )
     end
@@ -34,7 +34,7 @@ RSpec.feature 'Article adding' do
     NewArticlePage.on do
       fill_form(title: '1234', text: article.text)
       submit_form
-      expect(text.downcase).to include(
+      expect(text.gsub("\n", ' ').downcase).to include(
         '1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)'.downcase
       )
     end
