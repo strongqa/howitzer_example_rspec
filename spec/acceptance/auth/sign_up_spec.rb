@@ -49,7 +49,8 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      expect(text).to include(
+      puts text
+      expect(text.gsub("\n", ' ')).to include(
         "2 errors must be fixed Email can't be blank Password can't be blank"
       )
     end
@@ -66,7 +67,7 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      expect(text).to include("1 error must be fixed Password can't be blank")
+      expect(text.gsub("\n", ' ')).to include("1 error must be fixed Password can't be blank")
     end
   end
 
@@ -81,7 +82,7 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      expect(text).to include("1 error must be fixed Email can't be blank")
+      expect(text.gsub("\n", ' ')).to include("1 error must be fixed Email can't be blank")
     end
   end
 
@@ -108,7 +109,7 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      expect(text).to include(
+      expect(text.gsub("\n", ' ')).to include(
         '1 error must be fixed Password is too short (minimum is 8 characters)'
       )
     end
@@ -125,7 +126,7 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      expect(text).to include(
+      expect(text.gsub("\n", ' ')).to include(
         "1 error must be fixed Password confirmation doesn't match Password"
       )
     end
@@ -141,7 +142,7 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      expect(text).to include('1 error must be fixed Email has already been taken')
+      expect(text.gsub("\n", ' ')).to include('1 error must be fixed Email has already been taken')
     end
   end
 end
