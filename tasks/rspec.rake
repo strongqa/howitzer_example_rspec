@@ -31,22 +31,22 @@ namespace :features do
 
   RSpec::Core::RakeTask.new(:smoke, 'Run workable smoke scenarios (with @smoke tag)') do |t|
     Howitzer.current_rake_task = t.name
-    t.rspec_opts = "#{opts.call(t.name)} --tag smoke --tag ~wip --tag ~bug"
+    t.rspec_opts = "#{opts.call(t.name)} --order random --tag smoke --tag ~wip --tag ~bug"
   end
 
   RSpec::Core::RakeTask.new(:bvt, 'Run workable build verification test scenarios') do |t|
     Howitzer.current_rake_task = t.name
-    t.rspec_opts = "#{opts.call(t.name)} --tag ~wip --tag ~bug --tag ~p1 --tag ~p2 --tag ~smoke"
+    t.rspec_opts = "#{opts.call(t.name)} --order random --tag ~wip --tag ~bug --tag ~p1 --tag ~p2 --tag ~smoke"
   end
 
   RSpec::Core::RakeTask.new(:p1, 'Run workable scenarios with normal priority (with @p1 tag)') do |t|
     Howitzer.current_rake_task = t.name
-    t.rspec_opts = "#{opts.call(t.name)} --tag p1 --tag ~wip --tag ~bug"
+    t.rspec_opts = "#{opts.call(t.name)} --order random --tag p1 --tag ~wip --tag ~bug"
   end
 
   RSpec::Core::RakeTask.new(:p2, 'Run workable scenarios with low priority (with @p2 tag)') do |t|
     Howitzer.current_rake_task = t.name
-    t.rspec_opts = "#{opts.call(t.name)} --tag p2 --tag ~wip --tag ~bug"
+    t.rspec_opts = "#{opts.call(t.name)} --order random --tag p2 --tag ~wip --tag ~bug"
   end
 end
 
