@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.feature 'Articles list' do
   background 'Create article and user' do
     @article1 = create(:article, category: create(:category, :default))
+    @article2 = create(:article, category: create(:category, :default))
     user = create(:user)
     log_in_as(user)
   end
