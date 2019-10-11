@@ -49,7 +49,6 @@ RSpec.feature 'Sign Up' do
       submit_form
     end
     SignUpPage.on do
-      puts text
       expect(text).to include
       "2 errors must be fixed
       Email can't be blank
