@@ -21,7 +21,7 @@ RSpec.feature 'Category maintaining' do
         Capybara.current_session.accept_alert
       end
     end
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category.name, wait: 3) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(category.name) }
   end
 
   scenario 'admin can edit existing category' do
@@ -39,7 +39,7 @@ RSpec.feature 'Category maintaining' do
         Capybara.current_session.accept_alert
       end
     end
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category_new, wait: 3) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(category_new) }
   end
 
   scenario 'admin can delete existing category' do
@@ -53,6 +53,6 @@ RSpec.feature 'Category maintaining' do
         Capybara.current_session.accept_alert
       end
     end
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category1.name, wait: 3) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(category1.name) }
   end
 end
