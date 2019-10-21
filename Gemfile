@@ -5,8 +5,7 @@ source 'https://rubygems.org'
 #
 gem 'capybara-webkit', group: :webkit
 
-gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'capybara-3',
-                ref: 'd492964617d86635aa1e811c16c4b6f074b938b3'
+gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'master'
 # Uncomment it if you are going to use 'poltergeist' driver. PhantomJS should be installed.
 # See https://github.com/jnicklas/capybara#poltergeist
 gem 'capybara-screenshot'
