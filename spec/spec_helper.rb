@@ -16,6 +16,7 @@ RSpec.configure do |config|
 
   config.disable_monkey_patching!
   config.color = true
+  config.order = Howitzer.test_order.presence || :defined
 
   config.before(:each) do
     scenario_name =
