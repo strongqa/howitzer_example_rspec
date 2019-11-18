@@ -5,14 +5,8 @@ AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.4
 
-Documentation:
-  Enabled: false
-
 Layout/CaseIndentation:
   Enabled: false
-
-LineLength:
-  Max: 120
 
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
@@ -20,10 +14,16 @@ Lint/AmbiguousRegexpLiteral:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/LineLength:
+  Max: 120
+
 Metrics/ModuleLength:
   Max: 150
 
 Style/CaseEquality:
+  Enabled: false
+
+Style/Documentation:
   Enabled: false
 
 Style/EmptyElse:
