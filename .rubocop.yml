@@ -5,33 +5,29 @@ AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.4
 
-
-LineLength:
-  Max: 120
+Documentation:
+  Enabled: false
 
 Layout/CaseIndentation:
   Enabled: false
 
-Style/EmptyElse:
-  Enabled: false
+LineLength:
+  Max: 120
 
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
-Style/CaseEquality:
-  Enabled: false
-
-Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/ModuleLength:
   Max: 150
 
-Metrics/BlockLength:
-  Exclude:
-    - '**/*_spec.rb'
-    - '**/*spec_helper.rb'
-    - '**/rspec.rake'
+Style/CaseEquality:
+  Enabled: false
+
+Style/EmptyElse:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
