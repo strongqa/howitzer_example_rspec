@@ -4,6 +4,8 @@ RSpec.feature 'Articles list' do
   background 'Create article and user' do
     @article1 = create(:article, category: create(:category, :default))
     @article2 = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article1, @article1.id)
+    Howitzer::Cache.store(:teardown, :article2, @article2.id)
     user = create(:user)
     log_in_as(user)
   end

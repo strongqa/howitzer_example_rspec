@@ -4,6 +4,7 @@ RSpec.feature 'Category maintaining' do
   background 'Login as admin' do
     @category = build(:category)
     @category1 = create(:category)
+    Howitzer::Cache.store(:teardown, :category1, @category1.id)
     log_in_as(create(:user, :admin))
   end
 

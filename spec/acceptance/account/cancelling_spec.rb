@@ -7,7 +7,9 @@ RSpec.feature 'Account cancelling' do
     EditAccountPage.open
     EditAccountPage.on { cancel_my_account }
     HomePage.on do
-      expect(text).to include('Bye! Your account was successfully cancelled. We hope to see you again soon.')
+      expect(alert_text.gsub(/×\s+/, '')).to eql(
+        'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      )
     end
   end
 end

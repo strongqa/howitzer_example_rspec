@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.feature 'Destroy comment' do
   background 'Create article, comment' do
     @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
     @comment = create(:comment, article: @article, user: create(:user, :default))
     log_in_as(create(:user, :admin))
     ArticlePage.open(id: @article.id)
@@ -12,7 +13,7 @@ RSpec.feature 'Destroy comment' do
     comment = @comment
     ArticlePage.on do
       destroy_comment(comment.body, true)
-      expect(text).to_not include(comment.body)
+      is_expected.to have_no_comment_item_element(comment.body)
     end
   end
 
@@ -20,7 +21,7 @@ RSpec.feature 'Destroy comment' do
     comment = @comment
     ArticlePage.on do
       destroy_comment(comment.body, false)
-      expect(text).to include(comment.body)
+      is_expected.to have_comment_item_element(comment.body)
     end
   end
 end

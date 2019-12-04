@@ -5,6 +5,7 @@ RSpec.feature 'Articles filtering by category' do
     @category = create(:category)
     @article1 = create(:article, category: @category)
     @article2 = create(:article, category: @category)
+    Howitzer::Cache.store(:teardown, :category, @category.id)
     user = create(:user)
     log_in_as(user)
   end

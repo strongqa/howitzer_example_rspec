@@ -30,6 +30,10 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
+    test_teardown = Howitzer::Cache.extract(:teardown)
+    test_teardown.keys.each do |key|
+      instance_variable_get("@#{key}")&.destroy
+    end
     Howitzer::Cache.clear_all_ns
     if CapybaraHelpers.cloud_driver?
       session_end = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))

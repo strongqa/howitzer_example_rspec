@@ -3,6 +3,7 @@ require 'spec_helper'
 RSpec.feature 'Article Viewing' do
   background 'Create article, comment' do
     @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
     @comment = create(:comment, article: @article, user: create(:user, :default))
     log_in_as(create(:user, :admin))
     ArticlePage.open(id: @article.id)
