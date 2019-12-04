@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.feature 'Adding Comment' do
   background 'Create article, user, comment' do
-    @article = create(:article)
+    @article = create(:article, category: create(:category, :default))
     Howitzer::Cache.store(:teardown, :article, @article.id)
     @comment = build(:comment)
     log_in_as(create(:user, :admin))
