@@ -36,7 +36,7 @@ RSpec.feature 'Article adding' do
       submit_form
       expect(article_errors_section.error_message.downcase).to eql(
         '1 error prohibited this article from being saved: title is too short (minimum is 5 characters)'
-       )
+      )
     end
   end
 end
