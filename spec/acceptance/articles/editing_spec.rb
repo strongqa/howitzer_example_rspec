@@ -3,8 +3,9 @@ require 'spec_helper'
 RSpec.feature 'Article Editing' do
   background 'log in as admin' do
     log_in_as(create(:user, :admin))
-    article = create(:article)
-    ArticlePage.open(id: article.id)
+    @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
+    ArticlePage.open(id: @article.id)
   end
 
   scenario 'User can edit article with correct credentials', smoke: true do

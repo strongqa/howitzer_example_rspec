@@ -4,6 +4,7 @@ RSpec.feature 'Article destroying' do
   before(:each) do
     log_in_as(create(:user, :admin))
     @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
     ArticleListPage.open
   end
 
@@ -11,7 +12,7 @@ RSpec.feature 'Article destroying' do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, true)
-      expect(text).to_not include(article.title.upcase)
+      is_expected.to have_no_article_item_element(article.title)
     end
   end
 
@@ -19,7 +20,7 @@ RSpec.feature 'Article destroying' do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, false)
-      expect(text).to include(article.title.upcase)
+      is_expected.to have_article_item_element(article.title)
     end
   end
 end

@@ -2,10 +2,11 @@ require 'spec_helper'
 
 RSpec.feature 'Adding Comment' do
   background 'Create article, user, comment' do
-    article = create(:article)
+    @article = create(:article, category: create(:category, :default))
+    Howitzer::Cache.store(:teardown, :article, @article.id)
     @comment = build(:comment)
     log_in_as(create(:user, :admin))
-    ArticlePage.open(id: article.id)
+    ArticlePage.open(id: @article.id)
   end
 
   scenario 'User can add comment with valid comment body', smoke: true do
@@ -13,7 +14,7 @@ RSpec.feature 'Adding Comment' do
     ArticlePage.on do
       fill_comment_form(body: comment.body)
       submit_form
-      expect(text).to include('Comment was successfully added to current article.')
+      expect(sanitized_alert_text).to eql('Comment was successfully added to current article.')
     end
   end
 
@@ -21,7 +22,7 @@ RSpec.feature 'Adding Comment' do
     ArticlePage.on do
       fill_comment_form(body: nil)
       submit_form
-      expect(text).to include("Body can't be blank")
+      expect(sanitized_alert_text).to eql("Body can't be blank")
     end
   end
 end
