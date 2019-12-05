@@ -14,7 +14,7 @@ RSpec.feature 'Adding Comment' do
     ArticlePage.on do
       fill_comment_form(body: comment.body)
       submit_form
-      expect(alert_text.gsub(/×\s+/, '')).to include('Comment was successfully added to current article.')
+      expect(sanitized_alert_text).to eql('Comment was successfully added to current article.')
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.feature 'Adding Comment' do
     ArticlePage.on do
       fill_comment_form(body: nil)
       submit_form
-      expect(alert_text.gsub(/×\s+/, '')).to include("Body can't be blank")
+      expect(sanitized_alert_text).to eql("Body can't be blank")
     end
   end
 end
