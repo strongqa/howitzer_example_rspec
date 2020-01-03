@@ -22,8 +22,8 @@ RSpec.feature 'Password Resetting' do
       fill_form(new_password: 1_234_567_890,
                 confirm_new_password: 1_234_567)
       submit_form
-      expect(errors_section.error_message).to eql(
-        "1 error must be fixed Password confirmation doesn't match Password"
+      expect(sanitized_alert_text).to eql(
+        "1 ERROR PROHIBITED THIS USER FROM BEING SAVED: Password confirmation doesn't match Password"
       )
     end
   end
@@ -35,8 +35,8 @@ RSpec.feature 'Password Resetting' do
       fill_form(new_password: 1_234_567,
                 confirm_new_password: 1_234_567)
       submit_form
-      expect(errors_section.error_message).to eql(
-        '1 error must be fixed Password is too short (minimum is 8 characters)'
+      expect(sanitized_alert_text).to eql(
+        '1 ERROR PROHIBITED THIS USER FROM BEING SAVED: Password is too short (minimum is 8 characters)'
       )
     end
   end
