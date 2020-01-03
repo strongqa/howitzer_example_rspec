@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/thoughtbot/capybara-webkit.git
+  revision: 77fdac424cd6fdb5aa266b229a888cc58da8e95e
+  branch: master
+  specs:
+    capybara-webkit (1.15.1)
+      capybara (>= 2.3, < 4.0)
+      json
+
+GIT
   remote: https://github.com/strongqa/howitzer.git
   revision: 7b0c115f833c76eef972f673a6e729230f7910e9
   branch: master
@@ -43,9 +52,6 @@ GEM
     capybara-screenshot (1.0.23)
       capybara (>= 1.0, < 4)
       launchy
-    capybara-webkit (1.15.1)
-      capybara (>= 2.3, < 4.0)
-      json
     childprocess (3.0.0)
     cliver (0.3.2)
     coderay (1.1.2)
@@ -199,7 +205,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara-screenshot
-  capybara-webkit
+  capybara-webkit!
   factory_bot
   howitzer!
   multi_json

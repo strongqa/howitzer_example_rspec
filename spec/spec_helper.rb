@@ -5,7 +5,7 @@ require_relative '../config/capybara'
 Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 RSpec.configure do |config|
-  config.filter_run_excluding no_poltergeist: true if Howitzer.driver == 'poltergeist'
+  config.filter_run_excluding no_poltergeist: true if %w[poltergeist webkit].include?(Howitzer.driver)
 
   Howitzer::Log.settings_as_formatted_text
 
