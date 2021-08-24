@@ -5,8 +5,6 @@ require_relative '../config/capybara'
 Dir['./spec/support/**/*.rb'].each { |f| require f }
 
 RSpec.configure do |config|
-  config.filter_run_excluding no_poltergeist: true if %w[poltergeist webkit].include?(Howitzer.driver)
-
   Howitzer::Log.settings_as_formatted_text
 
   Howitzer::Cache.store(:cloud, :start_time, Time.now.utc)
@@ -31,14 +29,14 @@ RSpec.configure do |config|
 
   config.after(:each) do
     test_teardown = Howitzer::Cache.extract(:teardown)
-    test_teardown.keys.each do |key|
+    test_teardown.each_key do |key|
       instance_variable_get("@#{key}")&.destroy
     end
     Howitzer::Cache.clear_all_ns
     if CapybaraHelpers.cloud_driver?
       session_end = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
       Howitzer::Log.info "CLOUD VIDEO #{@session_start} - #{session_end}" \
-               " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
+                         " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
     elsif CapybaraHelpers.ie_browser?
       Howitzer::Log.info 'IE reset session'
       Capybara.current_session.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")

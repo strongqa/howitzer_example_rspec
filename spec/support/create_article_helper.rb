@@ -1,5 +1,4 @@
 module CreateArticleHelper
-  # rubocop:disable Metrics/AbcSize
   def create_article(article)
     NewArticlePage.open
     NewArticlePage.on do
@@ -25,7 +24,6 @@ module CreateArticleHelper
     expect(ArticlePage).to be_authenticated
     expect(ArticlePage).to be_displayed
   end
-  # rubocop:enable Metrics/AbcSize
 end
 
 RSpec.configure do |config|

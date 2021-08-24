@@ -12,7 +12,7 @@ RSpec.feature 'Destroy comment' do
   scenario 'User can remove comment with confirmation action' do
     comment = @comment
     ArticlePage.on do
-      destroy_comment(comment.body, true)
+      destroy_comment(comment.body, confirmation: true)
       is_expected.to have_no_comment_item_element(comment.body)
     end
   end
@@ -20,7 +20,7 @@ RSpec.feature 'Destroy comment' do
   scenario 'User can not remove comment without confirmation action' do
     comment = @comment
     ArticlePage.on do
-      destroy_comment(comment.body, false)
+      destroy_comment(comment.body, confirmation: false)
       is_expected.to have_comment_item_element(comment.body)
     end
   end

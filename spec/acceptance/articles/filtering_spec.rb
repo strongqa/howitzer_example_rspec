@@ -28,11 +28,7 @@ RSpec.feature 'Articles filtering by category' do
     CategoriesListPage.open
     CategoriesListPage.on do
       delete_category(category.name)
-      if Howitzer.driver == 'webkit'
-        driver.browser.accept_js_confirms
-      else
-        Capybara.current_session.accept_alert
-      end
+      Capybara.current_session.accept_alert
     end
   end
 end

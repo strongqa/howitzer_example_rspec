@@ -16,11 +16,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { is_expected.to have_category_item_element(category.name) }
     CategoriesListPage.on do
       delete_category(category.name)
-      if Howitzer.driver == 'webkit'
-        driver.browser.accept_js_confirms
-      else
-        Capybara.current_session.accept_alert
-      end
+      Capybara.current_session.accept_alert
     end
     CategoriesListPage.on { is_expected.to have_no_category_item_element(category.name) }
   end
@@ -34,11 +30,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.on { is_expected.to have_category_item_element(category_new) }
     CategoriesListPage.on do
       delete_category(category_new)
-      if Howitzer.driver == 'webkit'
-        driver.browser.accept_js_confirms
-      else
-        Capybara.current_session.accept_alert
-      end
+      Capybara.current_session.accept_alert
     end
     CategoriesListPage.on { is_expected.to have_no_category_item_element(category_new) }
   end
@@ -48,11 +40,7 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.open
     CategoriesListPage.on do
       delete_category(category1.name)
-      if Howitzer.driver == 'webkit'
-        driver.browser.accept_js_confirms
-      else
-        Capybara.current_session.accept_alert
-      end
+      Capybara.current_session.accept_alert
     end
     CategoriesListPage.on { is_expected.to have_no_category_item_element(category1.name) }
   end

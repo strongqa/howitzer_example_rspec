@@ -1,6 +1,5 @@
 module SignUpHelper
   # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def sign_up_as(user)
     SignUpPage.open
     SignUpPage.on do
@@ -49,7 +48,6 @@ module SignUpHelper
   end
 
   # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 end
 
 RSpec.configure do |config|

@@ -3,7 +3,8 @@
 
 AllCops:
   DisplayCopNames: true
-  TargetRubyVersion: 2.4
+  NewCops: enable
+  TargetRubyVersion: 3
 
 Layout/CaseIndentation:
   Enabled: false

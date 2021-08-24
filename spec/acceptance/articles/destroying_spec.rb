@@ -11,7 +11,7 @@ RSpec.feature 'Article destroying' do
   scenario 'User can remove article with confirmation action', smoke: true do
     article = @article
     ArticleListPage.on do
-      destroy_article(article.title, true)
+      destroy_article(article.title, confirmation: true)
       is_expected.to have_no_article_item_element(article.title)
     end
   end
@@ -19,7 +19,7 @@ RSpec.feature 'Article destroying' do
   scenario 'User can not remove article without confirmation action' do
     article = @article
     ArticleListPage.on do
-      destroy_article(article.title, false)
+      destroy_article(article.title, confirmation: false)
       is_expected.to have_article_item_element(article.title)
     end
   end
