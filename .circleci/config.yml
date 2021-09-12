@@ -13,8 +13,8 @@ jobs:
         # Restore bundle cache
         - type: cache-restore
           key: example-rspec-{{ checksum "Gemfile.lock" }}
-
         # Bundle install dependencies
+        - run: bundle update --bundler
         - run: bundle install --path vendor/bundle
         # Store bundle cache
         - type: cache-save

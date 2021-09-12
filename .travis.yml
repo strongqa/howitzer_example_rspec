@@ -16,6 +16,9 @@ apt:
     - gstreamer1.0-tools
     - gstreamer1.0-x
 
+before_install:
+  - yes | gem update --system --force
+  - gem install bundler
 install: bundle install --jobs=3 --retry=3
 
 env:
