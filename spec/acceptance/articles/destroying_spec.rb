@@ -12,7 +12,7 @@ RSpec.feature 'Article destroying' do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, confirmation: true)
-      is_expected.to have_no_article_item_element(article.title)
+      is_expected.to have_no_article_item_element(lambda_args(title: article.title))
     end
   end
 
@@ -20,7 +20,7 @@ RSpec.feature 'Article destroying' do
     article = @article
     ArticleListPage.on do
       destroy_article(article.title, confirmation: false)
-      is_expected.to have_article_item_element(article.title)
+      is_expected.to have_article_item_element(lambda_args(title: article.title))
     end
   end
 end

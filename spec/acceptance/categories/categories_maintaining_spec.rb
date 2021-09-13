@@ -13,12 +13,12 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.open
     CategoriesListPage.on { add_new_category }
     NewCategoryPage.on { create_category(category.name) }
-    CategoriesListPage.on { is_expected.to have_category_item_element(category.name) }
+    CategoriesListPage.on { is_expected.to have_category_item_element(lambda_args(name: category.name)) }
     CategoriesListPage.on do
       delete_category(category.name)
       Capybara.current_session.accept_alert
     end
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category.name) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(lambda_args(name: category.name)) }
   end
 
   scenario 'admin can edit existing category' do
@@ -27,12 +27,12 @@ RSpec.feature 'Category maintaining' do
     CategoriesListPage.open
     CategoriesListPage.on { edit_category(category1.name) }
     EditCategoryPage.on { update_category(category_new) }
-    CategoriesListPage.on { is_expected.to have_category_item_element(category_new) }
+    CategoriesListPage.on { is_expected.to have_category_item_element(lambda_args(name: category_new)) }
     CategoriesListPage.on do
       delete_category(category_new)
       Capybara.current_session.accept_alert
     end
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category_new) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(lambda_args(name: category_new)) }
   end
 
   scenario 'admin can delete existing category' do
@@ -42,6 +42,6 @@ RSpec.feature 'Category maintaining' do
       delete_category(category1.name)
       Capybara.current_session.accept_alert
     end
-    CategoriesListPage.on { is_expected.to have_no_category_item_element(category1.name) }
+    CategoriesListPage.on { is_expected.to have_no_category_item_element(lambda_args(name: category1.name)) }
   end
 end

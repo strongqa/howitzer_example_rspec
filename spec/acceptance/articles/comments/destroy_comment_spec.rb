@@ -13,7 +13,7 @@ RSpec.feature 'Destroy comment' do
     comment = @comment
     ArticlePage.on do
       destroy_comment(comment.body, confirmation: true)
-      is_expected.to have_no_comment_item_element(comment.body)
+      is_expected.to have_no_comment_item_element(lambda_args(comment: comment.body))
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.feature 'Destroy comment' do
     comment = @comment
     ArticlePage.on do
       destroy_comment(comment.body, confirmation: false)
-      is_expected.to have_comment_item_element(comment.body)
+      is_expected.to have_comment_item_element(lambda_args(comment: comment.body))
     end
   end
 end

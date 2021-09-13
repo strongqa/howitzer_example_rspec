@@ -16,12 +16,12 @@ RSpec.feature 'Articles filtering by category' do
     category = @category
     ArticleListPage.open
     ArticleListPage.on do
-      is_expected.to have_category_item_element(category.name)
+      is_expected.to have_category_item_element(lambda_args(name: category.name))
       open_category_item(category.name)
     end
     CategoriesPage.on do
-      is_expected.to have_article_element(article1.title)
-      is_expected.to have_article_element(article2.title)
+      is_expected.to have_article_element(lambda_args(name: article1.title))
+      is_expected.to have_article_element(lambda_args(name: article2.title))
     end
     CategoriesPage.on { main_menu_section.choose_menu('Logout') }
     log_in_as(create(:user, :admin))

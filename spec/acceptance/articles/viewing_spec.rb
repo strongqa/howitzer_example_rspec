@@ -20,7 +20,7 @@ RSpec.feature 'Article Viewing' do
       is_expected.to have_comment_field_element
       is_expected.to have_edit_article_button_element
       is_expected.to have_add_comment_button_element
-      is_expected.to have_destroy_comment_element(comment.body)
+      is_expected.to have_destroy_comment_element
     end
   end
 

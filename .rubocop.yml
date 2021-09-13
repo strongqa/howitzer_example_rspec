@@ -9,14 +9,14 @@ AllCops:
 Layout/CaseIndentation:
   Enabled: false
 
+Layout/LineLength:
+  Max: 120
+
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
 Metrics/BlockLength:
   Enabled: false
-
-Metrics/LineLength:
-  Max: 120
 
 Metrics/ModuleLength:
   Max: 150
