@@ -10,8 +10,7 @@ Howitzer example project based on Rspec for demo web application http://demoapp.
 
 ## Requirements
 
-- Ruby 2.2.2+
-- Howitzer 2+
+- Ruby 3.0.2+
 
 ## Getting Started
 

@@ -1,5 +1,6 @@
 # See full list of defaults here: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 # To see all cops used see here: https://github.com/bbatsov/rubocop/blob/master/config/enabled.yml
+require: rubocop-rspec
 
 AllCops:
   DisplayCopNames: true
@@ -32,3 +33,12 @@ Style/EmptyElse:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+RSpec/Capybara/FeatureMethods:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 40
+
+RSpec/MultipleExpectations:
+  Max: 8

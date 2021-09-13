@@ -1,26 +1,27 @@
 require 'spec_helper'
 
 RSpec.feature 'Article Viewing' do
+  let(:article) { create(:article, category: create(:category, :default)) }
+  let!(:comment) { create(:comment, article: article, user: create(:user, :default)) }
+
   background 'Create article, comment' do
-    @article = create(:article, category: create(:category, :default))
-    Howitzer::Cache.store(:teardown, :article, @article.id)
-    @comment = create(:comment, article: @article, user: create(:user, :default))
+    Howitzer::Cache.store(:teardown, :article, article.id)
     log_in_as(create(:user, :admin))
-    ArticlePage.open(id: @article.id)
+    ArticlePage.open(id: article.id)
   end
 
   scenario 'Admin is viewing article page', smoke: true do
-    article = @article
-    comment = @comment
+    article_obj = article
+    comment_body = comment.body
     ArticlePage.on do
-      expect(text).to include(article.title)
-      expect(text).to include(article.text)
-      expect(text).to include(comment.body)
-      is_expected.to have_comment_form_element
-      is_expected.to have_comment_field_element
-      is_expected.to have_edit_article_button_element
-      is_expected.to have_add_comment_button_element
-      is_expected.to have_destroy_comment_element
+      expect(text).to include(article_obj.title)
+      expect(text).to include(article_obj.text)
+      expect(text).to include(comment_body)
+      expect(self).to have_comment_form_element
+      expect(self).to have_comment_field_element
+      expect(self).to have_edit_article_button_element
+      expect(self).to have_add_comment_button_element
+      expect(self).to have_destroy_comment_element
     end
   end
 

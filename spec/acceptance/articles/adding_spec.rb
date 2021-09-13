@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.feature 'Article adding' do
-  before(:each) do
+  background 'Create user' do
     log_in_as(create(:user, :admin))
     ArticleListPage.open
     ArticleListPage.on { add_new_article }

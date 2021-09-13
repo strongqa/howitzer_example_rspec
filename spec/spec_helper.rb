@@ -16,7 +16,7 @@ RSpec.configure do |config|
   config.color = true
   config.order = Howitzer.test_order.presence || :defined
 
-  config.before(:each) do
+  config.before do
     scenario_name =
       if RSpec.current_example.description.blank?
         RSpec.current_example.metadata[:full_description]
@@ -27,7 +27,7 @@ RSpec.configure do |config|
     @session_start = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
   end
 
-  config.after(:each) do
+  config.after do
     test_teardown = Howitzer::Cache.extract(:teardown)
     test_teardown.each_key do |key|
       instance_variable_get("@#{key}")&.destroy

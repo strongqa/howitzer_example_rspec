@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: f9f08c8103d6c210add21aa8fd8ce2d454c782cf
+  revision: 784173a22ee1e39c69902dc2084528b1ff68832c
   branch: master
   specs:
     howitzer (2.2.0)
@@ -65,7 +65,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
-    ffi (1.15.3)
+    ffi (1.15.4)
     gh (0.14.0)
       addressable
       backports
@@ -94,7 +94,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0704)
+    mime-types-data (3.2021.0901)
     mini_mime (1.1.1)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
@@ -108,7 +108,7 @@ GEM
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     oauth (0.5.6)
-    parallel (1.20.1)
+    parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
     pry (0.13.1)
@@ -150,7 +150,7 @@ GEM
     rspec-support (3.10.2)
     rspec-wait (0.0.9)
       rspec (>= 3, < 4)
-    rubocop (1.19.1)
+    rubocop (1.21.0)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -161,6 +161,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.11.0)
       parser (>= 3.0.1.1)
+    rubocop-rspec (2.4.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     selenium-webdriver (3.142.7)
@@ -209,6 +212,7 @@ DEPENDENCIES
   rest-client
   rspec (~> 3.2)
   rubocop
+  rubocop-rspec
   spyke
   travis
 
