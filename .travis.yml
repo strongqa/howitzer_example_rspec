@@ -26,10 +26,11 @@ env:
     - ARTIFACTS_REGION="eu-west-1"
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
     - MAILGUN_DOMAIN="mg.strongqa.com"
+    - SEXY_SETTINGS="driver=$DRIVER,mailgun_key=$MAILGUN_PRIVATE_API_KEY,mailgun_domain=$MAILGUN_DOMAIN"
 
   matrix:
-    - SEXY_SETTINGS="driver=headless_chrome,mailgun_key=$MAILGUN_PRIVATE_API_KEY"
-    - SEXY_SETTINGS="driver=headless_firefox,mailgun_key=$MAILGUN_PRIVATE_API_KEY"
+    - DRIVER=headless_chrome
+    - DRIVER=headless_firefox
     # - secure: "Fw+moqHkGSgR8dr0KMNxMbFjoX1yL7+94AinCcH/wPrbkgeBnP5k+pmVNfCJ8kMNR/mrGY20MrqSGLFmDriHCUwh5IPdMSXOcCAgJ/9nkh34sZGdKZTbSvU4XKi69qQxbbXccmbZnapC2uD95g42zw2EUDsUDS2qRmmxjRqAQajYg7QtWeE9dXjhytttiEu+6HrCE7qhTe3UMlqD29tHnUVrnfNDI2Ev5pEPkU7ADM+G3VM1VBLuMFW4JwRThaFBvCGvOU5Y7bSxOV6bLaz9+hq7ZomWroXZzJtc7gcUqqu8w4yZrH3V0DHx3DzUsJF/qYOx/AdQqjJuFZ7kSAZNhAGS8++J1QgvPaQpQVnrBTjWgxOgGyUDKu9J6ph2pY906IlI6BDveb7N6BOdNmCpHllWC706hssdNq1zIc6LDB3uXvRaSSIVh75t+KGfGLWGWSfldyr8Ry7OE7GY28uHMEI64BV1uI2L0bxKQ4DUYCZ+nz1nr4/Hu64MnMmQ/3bqkiev9p64KdGIyBL1NvjgiMvoUVCzDZZ4ppmO/rmon+cMQEY357SmxCp5tXkU5vtBbFXOOBdPnyDWYjvSiRKTldtYDfPwMjnbDteROB8N1lm1B0Xw+gs6M43UxI4Uc5zB97PuOMjgmrZoaTsb3faadLlg3gWKXaxQGn6bsMufRpI="
     # #SEXY_SETTINGS=driver=sauce,mailgun_api_key=secret,mailgun_key=secret,sl_user=secret,sl_api_key=secret,cloud_auth_login=secret,cloud_auth_pass=secret
     # - secure: "UjKaGlyPXF+kzIOBhmxlt4ZaBDh2Qh57FpZIjJo9ytn4b2uxxwnevsit6q+FOL3XycPVYqKHT8UBpFSVRDUKxkL9tgY8snnRO/iI+uKkn+BRSq+v8aXjfYdOGDHp/hcnNi7X94CIaQvhhjmlvFvUyGoSwm5yWthv7Hxz/xwHMmnDhQL/CFzTquRY7n9+UM+AXMNvhvmkfK/T8NyUkeksvqr3ks1ilqme3143iXXn9aCBc/1lGb8+89tgWcugfPlRXHQq0Vl+/TNVDfJViW8ZlPu2kgwu12RB2nJcLaeH4nT2tuA6KHpJzqsaCBv5qpsNCkmUnQuEUNKdysTmI1ipXHVxo93p0TJXBTa+Nf/uX5J2jSAQa3iQl+reAbTazvHdMprdm+WNd3OPQT7ExbGij239hF7FUTSFbpSHD1uSF7c0UAw5/FjOCUbaZFnRYM0lQeTJHqEOAt9GklRl+ubYW+W/zcHpj6lHu+GrE7PbxFCapzTZqAbZV8iablFsVqpb8EnMGIaIaXSRCIAmHHYxqthRi05Zy+WrfkhYsS63+aPDPVF8kRlR5TuivqyXJ7dksrgHSoa6+Na23SIoO3vAeM9x7zf1MKB5QY4lv73F1hDHMu2Kk3MOCPr3pIur9JB+vq0ZyYoiLJbphez1TNgYEMWl1+7tCnAtXArWigdWHVY="
