@@ -1,10 +1,8 @@
 Howitzer Example Rspec
 =======================
 
-[![Build Status](https://travis-ci.org/strongqa/howitzer_example_rspec.svg?branch=master)][travis]
+[![Build Status](https://app.travis-ci.com/strongqa/howitzer_example_rspec.svg?branch=master)](https://app.travis-ci.com/strongqa/howitzer_example_rspec)
 [![CircleCI](https://circleci.com/gh/strongqa/howitzer_example_rspec.svg?style=svg&circle-token=15ab6b1e7f4e9f9abc2e61b95e6a3cdc7d6655b7)](https://circleci.com/gh/strongqa/howitzer_example_rspec)
-
-[travis]: https://travis-ci.org/strongqa/howitzer_example_rspec
 
 Howitzer example project based on Rspec for demo web application http://demoapp.strongqa.com
 
@@ -42,8 +40,6 @@ rake -T
 ```
 
 ## Contributing
-
-[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/0)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/0)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/1)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/1)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/2)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/2)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/3)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/3)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/4)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/4)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/5)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/5)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/6)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/6)[![](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/images/7)](https://sourcerer.io/fame/romikoops/strongqa/howitzer_example_rspec/links/7)
 
 Code quality is controlled by [Rubocop](https://github.com/bbatsov/rubocop)
 

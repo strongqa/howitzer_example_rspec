@@ -24,6 +24,7 @@ env:
   global:
     - ARTIFACTS_DEBUG=0
     - ARTIFACTS_REGION="eu-west-1"
+    - ARTIFACTS_BUCKET="howitzer-example-travis"
     - CI_ARTIFACTS_PATH="https://s3-eu-west-1.amazonaws.com/howitzer-example-travis/$TRAVIS_REPO_SLUG/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER/"
     - MAILGUN_DOMAIN="mg.strongqa.com"
     - BASIC_SEXY_SETTINGS="mailgun_key=$MAILGUN_PRIVATE_API_KEY,mailgun_domain=$MAILGUN_DOMAIN"
@@ -45,11 +46,6 @@ addons:
   chrome: stable
   firefox: latest
   artifacts:
-    key:
-      secure: "gdQTTFauwapAwLlAm6TqkbRtKWi8HXH/h/oWoElbTnOMXGOv0+KWWRh3CA85p4Qbw/7UOl/1kHSWnlu5EHEUjsOgIoArffFHAqf6/PGgQHA800O3I83sTqWKOINs0i9v8XF0Rhj9HVmjIALVsMMGztQj+P+5Pbtzyzo1CJAYqyw4hNd8z+bU3qdLMXxY1UW/xu3lFjnT36zkaak9AhnK5d5AnQUiL5hONsyntIZ9AxohS1Q8ckHln/IWsbDHeUw9wsB0AOBYncO5u3ZNhvzHdjaHIG7XDKJ3fsz55xz2cwrTNfbWYU4/fcfpeYCVE6MC4+lfZ+DmrBYlieGsYPDD/ef9AY6jV+kJtwzZ+idD6ZAxMjtZFdjf2Ya0RTaE2nFANuIpOORquAJra8csAtzVlYhp0pOTwR0YIfIFye+KSqOCzSn4V1lG+Yc4NPUn3ToO426ey9f0hz8ApNRxmIUiVq9oN6qb5gHCpLi2GWCOrJl9G5bPRHxXpLffYDUX/i15My0s6GH0UVXLaAQmw94qSkfUyBJFsg4ug5p8IHB23E6YD2N675fgvfPidn0WFJlYo/hqjZTqoWq3FoBdRsUoQWCV9fnA2Kb6Ilnw+rDQ4CJ1CLq7KjiP93rnps8V+v/hGx4hvIUC+Z8Y/u9HvHlbxLs1CtlprVPnwF1eJZncZUI="
-    secret:
-      secure: "YRgTCXFnt0LvpzOKB5TnZMsWLrZiu0QbKuR1op9wVQuWzKXsZMuSS6hKFJkDPXMSoKvgKREEeVRSZSjte2jJ+dpyCYCns1aWcYRYuKNntfkyZFTUBYfbinHhbZKTkYNPPsWFEoER111Wpdgn//eT1YWn1VhmFdp1exUANwM8A5v1U6iBcnOzDhYC3Jsr+2/SfiPyM1lL36bllafph00sTrnos8TivT/3XLXcjMlzHjJSQnZG4xQY2UoA4EDNSG0otM3nmPRpYrJfCj4A+yGkfNe7Qq8K3hvAY9x6KHmSb/KqXvrNga1xcvk0aQ7fIkoZukVFKRygrCp9YICf2R2dg7vMoE/2Twsto+s9R456NLiC6ib9TiOr41gPj9TqPW04BW3iynGjcLXw6A1HXMdr4XbHkprRBWwdJp0oxzfotLYTyb5pb6mT/41GDMFgMWf/La7gHg24lT/TaI80nulllz9pIpDnBIObNw4Vrd24HPThLDgJQzuD63YVGQGPzGOe4d2hB1a8SKqZiHBgBHbNQijFCxm/yJrr9LlACBG3y41NLUN28gR3LJYhgJPu5DT7Sg4/gWmnWJIGE4m1wJ3SWngVAVlxUr6OGN26k9PnmlThccJLydl3R/kOUXDMm3nQKyjMCI68AF49BrbC6GqFB4EuEDLeWrMwbdvpdN0/B/Q="
-    bucket: howitzer-example-travis
     paths:
       - $(find log -type f | tr "\n" ":")
 
