@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '>=2.6.8'
+
 gem 'capybara-screenshot', git: 'https://github.com/mattheworiordan/capybara-screenshot.git'
 gem 'factory_bot'
 gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'master'

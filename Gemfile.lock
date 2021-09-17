@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: 22422ebcea932961aaa2352f1e8d1a6112ac1e98
+  revision: 51297a26d461d8b543c3ab8997926b22d049359d
   branch: master
   specs:
     howitzer (2.2.0)
@@ -16,7 +16,6 @@ GIT
       capybara (< 4.0)
       colorize
       gli
-      gmail
       launchy
       log4r (~> 1.1.10)
       rake
@@ -79,11 +78,6 @@ GEM
     faraday_middleware (1.1.0)
       faraday (~> 1.0)
     gli (2.20.1)
-    gmail (0.7.1)
-      gmail_xoauth (>= 0.3.0)
-      mail (>= 2.2.1)
-    gmail_xoauth (0.4.2)
-      oauth (>= 0.3.6)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -92,8 +86,6 @@ GEM
     launchy (2.5.0)
       addressable (~> 2.7)
     log4r (1.1.10)
-    mail (2.7.1)
-      mini_mime (>= 0.1.1)
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
@@ -107,7 +99,6 @@ GEM
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    oauth (0.5.6)
     parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -199,6 +190,9 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   spyke
+
+RUBY VERSION
+   ruby 3.0.2p107
 
 BUNDLED WITH
    2.2.22
