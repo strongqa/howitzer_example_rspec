@@ -6,24 +6,6 @@ GIT
       capybara (>= 1.0, < 4)
       launchy
 
-GIT
-  remote: https://github.com/strongqa/howitzer.git
-  revision: 4d645528c5de7e924febdd66fe7bd174f8756e17
-  branch: master
-  specs:
-    howitzer (2.2.0)
-      activesupport (>= 5, < 7)
-      capybara (< 4.0)
-      colorize
-      gli
-      launchy
-      log4r (~> 1.1.10)
-      rake
-      rspec (~> 3.2)
-      rspec-wait
-      selenium-webdriver (>= 3.4.1, < 4.0)
-      sexy_settings
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,7 +38,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
-    faraday (1.7.2)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -78,6 +60,18 @@ GEM
     faraday_middleware (1.1.0)
       faraday (~> 1.0)
     gli (2.20.1)
+    howitzer (2.3.0)
+      activesupport (>= 5, < 7)
+      capybara (< 4.0)
+      colorize
+      gli
+      launchy
+      log4r (~> 1.1.10)
+      rake
+      rspec (~> 3.2)
+      rspec-wait
+      selenium-webdriver (>= 3.4.1, < 4.0)
+      sexy_settings
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -181,7 +175,7 @@ PLATFORMS
 DEPENDENCIES
   capybara-screenshot!
   factory_bot
-  howitzer!
+  howitzer
   multi_json
   pry
   pry-byebug
