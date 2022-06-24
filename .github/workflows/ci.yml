@@ -1,0 +1,69 @@
+name: Howitzer
+
+on:
+  pull_request:
+    branches: master 
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - 2.6.10 
+          - 2.7.6
+          - 3.0.4
+          - 3.1.2
+        driver:
+          - headless_chrome
+          - headless_firefox
+        rake: 
+          - features:bvt features:p1 features:p2
+        include:
+          - driver: sauce
+            ruby-version: 3.0.4
+            cloud: SAUCER
+            rake: features:smoke
+          - driver: testingbot
+            ruby-version: 3.0.4
+            cloud: TESTINGBOT
+            rake: features:smoke
+          - driver: browserstack
+            ruby-version: 3.0.4
+            cloud: BROWSERSTACK
+            rake: features:smoke
+          - driver: crossbrowsertesting
+            ruby-version: 3.0.4
+            cloud: CROSSBROWSERTESTING
+            rake: features:smoke
+          - driver: lambdatest
+            ruby-version: 3.0.4
+            cloud: LAMBDATEST
+            rake: features:smoke
+            
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+      - name: Install packages
+        run: sudo apt-get install -y jq google-chrome-stable
+      - name: Set up Ruby ${{ matrix.ruby-version }}
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Install dependencies
+        run: bundle install
+      - name: Run rubocop
+        if: ${{ contains(matrix.driver, 'headless') }}
+        run: bundle exec rake rubocop
+      - name: Run tests
+        run: bundle exec rake ${{ matrix.rake }}
+        env:
+          SEXY_SETTINGS: "driver=${{ matrix.driver }},cloud_auth_login=${{ secrets[format('{0}_AUTH_LOGIN',matrix.cloud)] }},cloud_auth_pass=${{ secrets[format('{0}_AUTH_PASS',matrix.cloud)] }},mailgun_domain=mg.strongqa.com,mailgun_key=${{ secrets.MAILGUN_PRIVATE_API_KEY }}"
