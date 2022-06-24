@@ -28,7 +28,7 @@ jobs:
         include:
           - driver: sauce
             ruby-version: 3.0.4
-            cloud: SAUCER
+            cloud: SAUCE
             rake: features:smoke
           - driver: testingbot
             ruby-version: 3.0.4
