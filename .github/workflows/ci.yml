@@ -2,7 +2,13 @@ name: Howitzer
 
 on:
   pull_request:
-    branches: master 
+    branches: master
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'The branch, tag or SHA to checkout'  
+        type: string   
+        required: false 
 
 concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,8 +21,7 @@ jobs:
       max-parallel: 1
       fail-fast: false
       matrix:
-        ruby-version:
-          - 2.6.10 
+        ruby-version: 
           - 2.7.6
           - 3.0.4
           - 3.1.2
@@ -58,6 +63,11 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
+      - name: Configure bundle
+        if: ${{ github.event.inputs.ref != '' }}
+        run: |
+          echo "BUNDLE_GEMFILE=Gemfile.github" >> $GITHUB_ENV
+          echo "HOWITZER_REF=${{github.event.inputs.ref}}" >> $GITHUB_ENV
       - name: Install dependencies
         run: bundle install
       - name: Run rubocop
