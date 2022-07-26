@@ -1,5 +1,4 @@
 module SignUpHelper
-  # rubocop:disable Metrics/MethodLength
   def sign_up_as(user)
     SignUpPage.open
     SignUpPage.on do
@@ -28,8 +27,8 @@ module SignUpHelper
     end
     HomePage.on do
       expect(text).to include(
-        'A message with a confirmation link has been sent to your email address.' \
-        ' Please open the link to activate your account.'
+        'A message with a confirmation link has been sent to your email address. ' \
+        'Please open the link to activate your account.'
       )
     end
   end
@@ -46,8 +45,6 @@ module SignUpHelper
     expect(HomePage).to be_authenticated
     expect(HomePage).to be_displayed
   end
-
-  # rubocop:enable Metrics/MethodLength
 end
 
 RSpec.configure do |config|

@@ -25,8 +25,8 @@ RSpec.feature 'Sign Up' do
     end
     HomePage.on do
       expect(text).to include(
-        'A message with a confirmation link has been sent to your email address.' \
-        ' Please open the link to activate your account.'
+        'A message with a confirmation link has been sent to your email address. ' \
+        'Please open the link to activate your account.'
       )
     end
     ConfirmationInstructionEmail.find_by_recipient(user.email).confirm_my_account
