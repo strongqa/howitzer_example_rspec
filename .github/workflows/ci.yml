@@ -74,7 +74,7 @@ jobs:
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop
       - name: Run tests
-        run: bundle exec rake ${{ matrix.rake }} EXTRA_RSPEC_OPTS='--force-color'
+        run: bundle exec rake ${{ matrix.rake }} EXTRA_RUN_OPTS='--force-color'
         env:
           CI_ARTIFACTS_PATH: file://${{ env.GITHUB_WORKSPACE }}/artifacts
           SEXY_SETTINGS: "driver=${{ matrix.driver }},cloud_auth_login=${{ secrets[format('{0}_AUTH_LOGIN',matrix.cloud)] }},cloud_auth_pass=${{ secrets[format('{0}_AUTH_PASS',matrix.cloud)] }},mailgun_domain=mg.strongqa.com,mailgun_key=${{ secrets.MAILGUN_PRIVATE_API_KEY }}"
