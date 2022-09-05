@@ -4,8 +4,7 @@ opts = lambda do |task_name|
   [
     "--format html --out ./#{Howitzer.log_dir}/#{Howitzer.driver}_#{task_name}_#{Howitzer.html_log}",
     '--format documentation',
-    '--color',
-    '--force-color'
+    '--color'
   ].join(' ').freeze
 end
 
