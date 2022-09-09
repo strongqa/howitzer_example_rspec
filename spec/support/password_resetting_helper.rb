@@ -1,5 +1,4 @@
 module PasswordResettingHelper
-  # rubocop:disable Metrics/MethodLength
   def user_restores_password(email)
     LoginPage.open
     LoginPage.on { navigate_to_forgot_password_page }
@@ -16,7 +15,6 @@ module PasswordResettingHelper
       .find_by_recipient(email)
       .reset_password
   end
-  # rubocop:enable Metrics/MethodLength
 end
 
 RSpec.configure do |config|

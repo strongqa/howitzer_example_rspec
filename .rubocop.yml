@@ -19,6 +19,9 @@ Lint/AmbiguousRegexpLiteral:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/MethodLength:
+  Max: 30
+
 Metrics/ModuleLength:
   Max: 150
 
