@@ -47,10 +47,10 @@ jobs:
             ruby-version: 3.0.4
             cloud: CROSSBROWSERTESTING
             rake: features:smoke
-          - driver: lambdatest
-            ruby-version: 3.0.4
-            cloud: LAMBDATEST
-            rake: features:smoke
+#          - driver: lambdatest
+#            ruby-version: 3.0.4
+#            cloud: LAMBDATEST
+#            rake: features:smoke
             
     steps:
       - uses: actions/checkout@v3
