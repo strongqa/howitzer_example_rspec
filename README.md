@@ -39,6 +39,29 @@ bundle install
 rake -T
 ```
 
+## Dockerfile
+###Build command
+```
+docker build -t <image_name> .
+```
+### Run container with tests
+
+Driver which is used by default is **headless chrome**
+
+Use **docker run** command to create and run container.
+
+- To run container by default:
+```
+docker run -it --name <your_container_name> <your_image_name>
+```
+
+- To run container using firefox headless browser need to override environment variable:
+SEXY_SETTINGS:
+  
+```
+docker run -e "SEXY_SETTINGS=driver=headless_firefox" -it --name <your_container_name> <your_image_name>
+```  
+
 ## Contributing
 
 Code quality is controlled by [Rubocop](https://github.com/bbatsov/rubocop)
