@@ -45,7 +45,7 @@ rake -T
 ```
 docker build -t <image_name> .
 ```
-### Run container with tests
+### Run tests in Docker
 
 Driver which is used by default is **headless chrome**
 
