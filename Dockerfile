@@ -5,7 +5,6 @@ ENV CHROME_BIN=/usr/bin/chromium-browser \
     SEXY_SETTINGS_DELIMITER=";" \
     SEXY_SETTINGS="driver=headless_chrome; headless_chrome_flags=window-size=1920x1080, disable-gpu, no-sandbox, disable-dev-shm-usage, disable-software-rasterizer"
 
-RUN bundle config --global frozen 1
 RUN apk update && apk upgrade --no-cache --available \
     && apk add --no-cache \
       chromium firefox \
@@ -19,14 +18,17 @@ RUN apk update && apk upgrade --no-cache --available \
     && apk add --no-cache \
       --repository=https://dl-cdn.alpinelinux.org/alpine/edge/testing font-wqy-zenhei \
     && wget https://github.com/mozilla/geckodriver/releases/download/v0.31.0/geckodriver-v0.31.0-linux64.tar.gz \
-    && tar -zxf geckodriver-v0.31.0-linux64.tar.gz -C /usr/bin
+    && tar -zxf geckodriver-v0.31.0-linux64.tar.gz -C /usr/bin \
+    && dbus-daemon --system
 
-RUN dbus-daemon --system
+RUN adduser -D howitzer-user
+USER howitzer-user
 
 WORKDIR /home/howitzer_example
 
-COPY Gemfile Gemfile.lock /home/howitzer_example/
-RUN bundle install
-COPY . .
+COPY --chown=howitzer-user Gemfile Gemfile.lock /home/howitzer_example/
+RUN bundle config --global frozen 1 && bundle install --jobs=3 --retry=3
 
-ENTRYPOINT bundle exec rake
+COPY --chown=howitzer-user . ./
+
+ENTRYPOINT ["bundle", "exec", "rake"]
