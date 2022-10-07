@@ -41,7 +41,7 @@ rake -T
 
 ## Dockerfile
 
-### Build image:
+### Build image
 ```
 docker build -t <image_name> .
 ```
@@ -57,7 +57,7 @@ docker run -it --name <container_name> <image_name>
 ```
 
 - To run container using firefox headless browser need to override environment variable:
-SEXY_SETTINGS:
+SEXY_SETTINGS
   
 ```
 docker run -e "SEXY_SETTINGS=driver=headless_firefox" -it --name <container_name> <image_name>
