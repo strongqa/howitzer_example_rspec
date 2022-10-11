@@ -85,7 +85,7 @@ docker stop <container_name/ID>
 Add to docker-compose.yml environment variable SEXY_SETTING and define value:
 ```
 services:
-  howitzer_example:
+  howitzer_example_rspec:
     build:
       context: "."
       dockerfile: Dockerfile
@@ -102,7 +102,8 @@ docker-compose -f docker-compose.yml up -d
 ```
 - Connect to created container using this command:
 ```
-docker exec -it <container_name/ID> /bin/bash
+docker compose exec -it howitzer_example_rspec  /bin/bash
+Where 'howitzer_example_rspec' is service's name in yml file
 ```
 - Run tests with the next command using container's terminal:
 ```
