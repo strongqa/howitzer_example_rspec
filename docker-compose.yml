@@ -1,0 +1,11 @@
+version: '1.0'
+
+services:
+  howitzer_example:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    environment:
+      LANG: en_US.U
+    volumes:
+      - ./:/home/howitzer_example/:cached
