@@ -4,7 +4,7 @@ jobs:
     build:
       working_directory: ~/howitzer_example
       docker:
-        - image: circleci/ruby:2.6.8-browsers
+        - image: cimg/ruby:3.0.4-browsers
       steps:
         - checkout
         - run: git submodule update --init
