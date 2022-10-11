@@ -8,6 +8,7 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
+        - run: apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
         - run: sudo apt-get update
         - run: sudo apt-get install g++ gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
         # Restore bundle cache
