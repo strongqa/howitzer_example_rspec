@@ -31,4 +31,4 @@ RUN bundle config --global frozen 1 && bundle install --jobs=3 --retry=3
 
 COPY --chown=howitzer-user . ./
 
-ENTRYPOINT ["bundle", "exec", "rake"]
+ENTRYPOINT ["sleep", "infinity"]

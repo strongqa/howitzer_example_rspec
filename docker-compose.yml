@@ -8,4 +8,4 @@ services:
     environment:
       LANG: en_US.U
     volumes:
-      - ./:/home/howitzer_example/:cached
+      - '.:/home/howitzer_example/:cached'
