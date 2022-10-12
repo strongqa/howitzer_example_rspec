@@ -43,7 +43,7 @@ rake -T
 
 ### Build image
 ```
-docker build -t my-image-name .
+docker build -t howitzer_example_rspec .
 ```
 Driver which is used by default is **headless chrome**
 
@@ -51,7 +51,7 @@ Use **docker run** command to create and run container.
 
 - In order to run container by default:
 ```
-docker run -d --name container_name my-image-name
+docker run -d --name container_name howitzer_example_rspec
 ```
 - Connect to created container using this command:
 ```
@@ -81,11 +81,11 @@ docker compose exec -it howitzer_example_rspec  /bin/bash
 ```
 docker-compose -f docker-compose.yml down
 ```
-WARNIGNG: ***after this command container will be deleted and all data lost.***
+WARNING: ***after this command container will be deleted and all data lost.***
 
 - If you need to save container use the next command to stop container:
 ```
-docker stop <container_name/ID>
+docker stop container_name/ID
 ```
 
 ## Contributing
