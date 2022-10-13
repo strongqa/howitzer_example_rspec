@@ -1,6 +1,6 @@
 FROM ruby:3.0.4-alpine3.16
 
-ENV CHROME_ARGS="headless_chrome_flags=window-size=1920x1080, disable-gpu, no-sandbox, disable-dev-shm-usage, disable-software-rasterizer"
+ENV CHROME_ARGS="window-size=1920x1080, disable-gpu, no-sandbox, disable-dev-shm-usage, disable-software-rasterizer"
 
 ENV CHROME_BIN=/usr/bin/chromium-browser \
     CHROME_PATH=/usr/lib/chromium/ \
