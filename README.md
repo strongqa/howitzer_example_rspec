@@ -60,7 +60,7 @@ docker exec -it container_name/ID /bin/bash
 
 - Run tests with the next commands using container's terminal:
 ```
-bundle exec rake
+SEXY_SETTINGS="driver=headless_chrome; $CHROME_ARGS" bundle exec rake
 ```
 NOTE! If you need to launch tests under firefox headless browser, use this command:
 ```
