@@ -51,11 +51,12 @@ Use **docker run** command to create and run container.
 
 - In order to run container by default:
 ```
-docker run -d --name container_name howitzer_example_rspec
+docker run -d --name rspec_container howitzer_example_rspec
 ```
 - Connect to created container using this command:
 ```
-docker exec -it container_name/ID /bin/bash
+docker exec -it rspec_container /bin/bash
+docker exec -it <container ID> /bin/bash
 ```
 
 - Run tests with the next commands using container's terminal:
@@ -87,7 +88,7 @@ WARNING: ***after this command container will be deleted and all data lost.***
 
 - If you need to save container use the next command to stop container:
 ```
-docker stop container_name/ID
+docker stop <container_name/ID>
 ```
 
 ## Contributing
