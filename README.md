@@ -61,9 +61,11 @@ docker exec -it container_name/ID /bin/bash
 - Run tests with the next commands using container's terminal:
 ```
 bundle exec rake
+```
+NOTE! If you need to launch tests under firefox headless browser, use this command:
+```
 SEXY_SETTINGS="driver=headless_firefox" bundle exec rake
 ```
-Second command overrides default driver
 
 ### Run with docker compose
 
