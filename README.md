@@ -39,6 +39,58 @@ bundle install
 rake -T
 ```
 
+## Run tests in Docker
+
+### Build image
+```
+docker build -t howitzer_example_rspec .
+```
+Driver which is used by default is **headless chrome**
+
+Use **docker run** command to create and run container.
+
+- In order to run container by default:
+```
+docker run -d --name rspec_container howitzer_example_rspec
+```
+- Connect to created container using this command:
+```
+docker exec -it rspec_container /bin/bash
+docker exec -it <container ID> /bin/bash
+```
+
+- Run tests with the next commands using container's terminal:
+```
+SEXY_SETTINGS="driver=headless_chrome; headless_chrome_flags=$CHROME_ARGS" bundle exec rake
+```
+NOTE! If you need to launch tests under firefox headless browser, use this command:
+```
+SEXY_SETTINGS="driver=headless_firefox" bundle exec rake
+```
+
+### Run with docker compose
+
+- Initialize build, and up the container in detached mode:
+```
+docker-compose -f docker-compose.yml up -d
+```
+- Connect to created container using this command:
+```
+docker compose exec -it howitzer_example_rspec  /bin/bash
+```
+
+### Stop container
+- Perform the next command to stop running container using docker-compose command:
+```
+docker-compose -f docker-compose.yml down
+```
+WARNING: ***after this command container will be deleted and all data lost.***
+
+- If you need to save container use the next command to stop container:
+```
+docker stop <container_name/ID>
+```
+
 ## Contributing
 
 Code quality is controlled by [Rubocop](https://github.com/bbatsov/rubocop)
