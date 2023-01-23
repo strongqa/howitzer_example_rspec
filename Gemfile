@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '>=2.6.8'
+ruby '>=2.7.7'
 
 gem 'capybara-screenshot', git: 'https://github.com/mattheworiordan/capybara-screenshot.git'
 gem 'factory_bot'
